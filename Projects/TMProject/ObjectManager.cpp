@@ -923,7 +923,7 @@ void ObjectManager::InitCurseList()
 	for (size_t i = 0; i < g_pCurseList.dnum - 1; ++i)
 	{
 		fread(&g_pCurseList.pCurseList[i], sizeof(stCurse), 1, fpBin);
-		fread(g_pCurseList.pCurseList[i].szTrans, sizeof(stCurse), 1, fpBin);
+		// fread(g_pCurseList.pCurseList[i].szTrans, sizeof(stCurse), 1, fpBin);
 	}
 
 	fclose(fpBin);

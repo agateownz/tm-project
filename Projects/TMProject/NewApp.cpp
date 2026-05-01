@@ -48,8 +48,11 @@ NewApp::NewApp()
 	china_bWrite = 0;
 	china_Playtime = -1;
 	m_binactive = 1;
-
+#if defined(DEBUG) | defined(_DEBUG)
+    // TODO: Remove hard-coded IP
+    sprintf_s(m_szServerIP, "127.0.0.1");
 	CreateConsole();
+#endif
 }
 
 NewApp::~NewApp()
@@ -180,7 +183,9 @@ HRESULT NewApp::Initialize(HINSTANCE hInstance, int nFull)
 	g_bHideSkillBuffEffect2 = 0;
 
 	m_nSound = Config.Config[2];
+    m_nSound = 0;
 	m_nMusic = Config.Config[3];
+    m_nMusic = 0;
 	nBright = Config.Config[5];
 	nCursor = Config.Config[6];
 

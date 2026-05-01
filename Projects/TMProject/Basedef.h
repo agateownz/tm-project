@@ -894,6 +894,7 @@ struct MSG_UpdateAffect
 	STRUCT_AFFECT Affect[32];
 };
 
+#pragma pack(push, 1)
 constexpr auto MSG_AccountLogin_Opcode = 0x20D;
 struct MSG_AccountLogin
 {
@@ -905,6 +906,7 @@ struct MSG_AccountLogin
 	int Force;
 	unsigned int Mac[4];
 };
+#pragma pack(pop)
 
 constexpr auto MSG_MessageWhisper_Opcode = 0x334;
 constexpr auto MSG_MessageShout_Opcode = 0xD1D;
