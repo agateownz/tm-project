@@ -2658,20 +2658,22 @@ void SListBox::SetTextTimer(unsigned int dTime)
 }
 
 SMessageBox::SMessageBox(const char* istrMessage, char ibyMessageBoxType, float inX, float inY)
-	: SPanel(-2, inX, inY, 256.0f, 172.0f, 0x1010101, RENDERCTRLTYPE::RENDER_IMAGE_STRETCH)
+	: SPanel(-2, inX, inY, 256.0f, 128.0f, 0x01010101, RENDERCTRLTYPE::RENDER_IMAGE_STRETCH)
 {
 	m_dwArg = 0;
 	m_eCtrlType = CONTROL_TYPE::CTRL_TYPE_MESSAGEBOX;
 	m_dwControlID = 4617;
 	m_dwMessage = -1;
 
-	SetCenterPos(m_dwControlID, inX, inY, 256.0f * RenderDevice::m_fWidthRatio, 172.0f * RenderDevice::m_fWidthRatio);
+	// 748 layout, recovered from client_748/WYD.exe (SMessageBox ctor):
+	// background set 164 (MessageBox_BG2), buttons set 165 (MessageBox_Btn2).
+	SetCenterPos(m_dwControlID, inX, inY, 232.0f, 128.0f);
 
-	m_pPanel1 = new SPanel(501, 0.0, 0.0, 256.0f, 172.0f, 0x77777777, RENDERCTRLTYPE::RENDER_IMAGE_STRETCH);
-	m_pMessage = new SText(-1, istrMessage, 0xFFFFFFFF, 20.0f, 36.0f, (float)strlen(istrMessage) * 6.0f, 52.0f, -1, 1, 0, 0);
-	m_pMessage2 = new SText(-1, istrMessage, 0xFFFFFFFF, 20.0f, 52.0f, (float)strlen(istrMessage) * 6.0f, 52.0f, -1, 1, 0, 0);
+	m_pPanel1 = new SPanel(164, 0.0, 0.0, 232.0f, 107.0f, 0x77777777, RENDERCTRLTYPE::RENDER_IMAGE_STRETCH);
+	m_pMessage = new SText(-1, istrMessage, 0xFFFFFFFF, 10.0f, 36.0f, (float)strlen(istrMessage) * 6.0f, 12.0f, -1, 1, 0, 0);
+	m_pMessage2 = new SText(-1, istrMessage, 0xFFFFFFFF, 10.0f, 52.0f, (float)strlen(istrMessage) * 6.0f, 12.0f, -1, 1, 0, 0);
 	m_pCaption = new SText(-1, g_pMessageStringTable[237], 0xFFFFFFFF, 96.0f, 9.0f,
-		(float)strlen(g_pMessageStringTable[237]) * 6.0f, 22.0f, -1, 1, 0, 0);
+		(float)strlen(g_pMessageStringTable[237]) * 6.0f, 12.0f, -1, 1, 0, 0);
 
 	m_bPickable = 1;
 
@@ -2688,7 +2690,10 @@ SMessageBox::SMessageBox(const char* istrMessage, char ibyMessageBoxType, float 
 
 	if (ibyMessageBoxType == TMC_MESSAGEBOX_MESSAGE)
 	{
-		m_pOKButton = new SButton(-2, 17.0f, 132.0f, 103.0f, 21.0f, 0, 1, g_pMessageStringTable[238]);
+		m_pOKButton = new SButton(-2, 20.0f, 77.0f, 88.0f, 21.0f, 0, 1, g_pMessageStringTable[238]);
+		m_pCancelButton = new SButton(-2, 117.0f, 77.0f, 88.0f, 21.0f, 0, 1, g_pMessageStringTable[239]);
+		m_pPanelBtn1 = new SPanel(165, 20.0f, 76.0f, 88.0f, 23.0f, 0x77777777, RENDERCTRLTYPE::RENDER_IMAGE_STRETCH);
+		m_pPanelBtn2 = new SPanel(165, 124.0f, 76.0f, 88.0f, 23.0f, 0x77777777, RENDERCTRLTYPE::RENDER_IMAGE_STRETCH);
 
 		if (m_pOKButton != nullptr)
 		{
@@ -2697,18 +2702,22 @@ SMessageBox::SMessageBox(const char* istrMessage, char ibyMessageBoxType, float 
 			AddChild(m_pOKButton);
 		}
 
-		m_pCancelButton = new SButton(-2, 137.0f, 132.0f, 103.0f, 21.0f, 0, 1, g_pMessageStringTable[239]);
 		if (m_pCancelButton != nullptr)
 		{
 			m_pCancelButton->SetControlID(2);
 			m_pCancelButton->SetEventListener(this);
 			AddChild(m_pCancelButton);
 		}
+
+		if (m_pPanelBtn1 != nullptr)
+			AddChild(m_pPanelBtn1);
+		if (m_pPanelBtn2 != nullptr)
+			AddChild(m_pPanelBtn2);
 	}
 	else if (ibyMessageBoxType == TMC_MESSAGEBOX_OK)
 	{
+		m_pOKButton = new SButton(-2, 70.0f, 77.0f, 88.0f, 21.0f, 0, 1, g_pMessageStringTable[238]);
 		m_pPanelBtn1 = new SPanel(165, 70.0f, 76.0f, 88.0f, 23.0f, 0x77777777, RENDERCTRLTYPE::RENDER_IMAGE_STRETCH);
-		m_pOKButton = new SButton(-2, 70.0f, 76.0f, 88.0f, 23.0f, 0, 1, g_pMessageStringTable[238]);
 
 		if (m_pOKButton != nullptr)
 		{
@@ -2716,8 +2725,12 @@ SMessageBox::SMessageBox(const char* istrMessage, char ibyMessageBoxType, float 
 			m_pOKButton->SetEventListener(this);
 			AddChild(m_pOKButton);
 		}
+
+		if (m_pPanelBtn1 != nullptr)
+			AddChild(m_pPanelBtn1);
 	}
 
+	// Added last so it renders behind the texts/buttons (AddChild prepends).
 	if (m_pPanel1 != nullptr)
 		AddChild(m_pPanel1);
 }
