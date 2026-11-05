@@ -140,7 +140,7 @@ int TMSelectServerScene::InitializeScene()
 	if (m_pSelChannelText)
 	{
 		m_pSelChannelText->m_nPosX += 8.0f;
-		m_pSelChannelText->m_nPosX += 5.0f;
+		m_pSelChannelText->m_nPosY += 5.0f;
 	}
 
 	m_pLoginPanelText = static_cast<SText*>(m_pControlContainer->FindControl(TMT_LOGIN_BOX_TEXT));
@@ -1353,7 +1353,52 @@ void TMSelectServerScene::InitializeUI()
 
 	m_pNServerSelect->SetPos(((float)g_pDevice->m_dwScreenWidth - m_pNServerSelect->m_nWidth) * 0.5f,
 		((float)g_pDevice->m_dwScreenHeight - m_pNServerSelect->m_nHeight) * 0.5f);
-	m_pNServerSelect->m_nPosY += 75.0f;
+
+	// The 748 client builds the server/channel window from these texture sets
+	// instead of using the 755+ scene layout. Values recovered from
+	// client_748/WYD.exe (TMSelectServerScene::InitializeScene).
+	static const struct
+	{
+		int nTextureSet;
+		float fX;
+		float fY;
+		float fWidth;
+		float fHeight;
+	} s_748Frame[] =
+	{
+		{ -391,   0.0f,  0.0f, 143.0f, 256.0f }, // NewUI_ServerList_Top
+		{ -392, 143.0f,  0.0f,  40.0f,  45.0f }, // NewUI_ChannelList_TopLeft
+		{ -393, 183.0f,  0.0f,  75.0f,  45.0f }, // NewUI_ChannelList_TopBottom
+		{ -394, 258.0f,  0.0f,  40.0f,  45.0f }, // NewUI_ChannelList_TopRight
+		{ -396, 142.0f, 45.0f, 157.0f, 211.0f }, // NewUI_ChannelList_Blank
+	};
+
+	for (int i = 0; i < _countof(s_748Frame); ++i)
+	{
+		SPanel* pFrame = new SPanel(s_748Frame[i].nTextureSet,
+			s_748Frame[i].fX,
+			s_748Frame[i].fY,
+			s_748Frame[i].fWidth,
+			s_748Frame[i].fHeight,
+			0xFFFFFFFF,
+			RENDERCTRLTYPE::RENDER_IMAGE_STRETCH);
+
+		if (pFrame)
+		{
+			pFrame->m_bSelectEnable = 0;
+			m_pNServerSelect->AddChild(pFrame);
+		}
+	}
+
+	// Same layout offsets as the 748 client.
+	if (m_pNServerGroupList)
+		m_pNServerGroupList->m_nPosY += 22.0f;
+
+	if (m_pNServerList)
+	{
+		m_pNServerList->m_nPosX += 11.0f;
+		m_pNServerList->m_nPosY += 27.0f;
+	}
 
 	_SYSTEMTIME time{};
 	GetLocalTime(&time);

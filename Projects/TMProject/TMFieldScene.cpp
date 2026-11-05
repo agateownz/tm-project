@@ -690,11 +690,15 @@ int TMFieldScene::InitializeScene()
 	m_pHelpBtn = (SButton*)m_pControlContainer->FindControl(TMB_HELP);
 	m_pccmode = (SPanel*)m_pControlContainer->FindControl(66817);
 
-	m_pccmode->SetVisible(0);
+	if (m_pccmode)
+		m_pccmode->SetVisible(0);
 
 	m_pGridCharFace = (SPanel*)m_pControlContainer->FindControl(69636);
-	m_pKingDomGuild_C->m_bSelected = 1;
-	m_pKingDomGuild_C->SetVisible(0);
+	if (m_pKingDomGuild_C)
+	{
+		m_pKingDomGuild_C->m_bSelected = 1;
+		m_pKingDomGuild_C->SetVisible(0);
+	}
 	m_pChatGeneral_C->m_bSelected = 0;
 	m_pChatParty_C->m_bSelected = 0;
 	m_pChatWhisper_C->m_bSelected = 0;
@@ -703,17 +707,22 @@ int TMFieldScene::InitializeScene()
 	m_pChatParty->m_bSelected = 1;
 	m_pChatWhisper->m_bSelected = 1;
 	m_pChatGuild->m_bSelected = 1;
-	m_pKingDomGuild->m_bSelected = 0;
+	if (m_pKingDomGuild)
+		m_pKingDomGuild->m_bSelected = 0;
 	m_pChatList->m_pScrollBar->SetVisible(1);
-	m_pChatListnotice->m_nPosX = 490.0f * RenderDevice::m_fWidthRatio;
-	m_pChatListnotice->m_nPosX = 440.0f * RenderDevice::m_fHeightRatio;
-	m_pChatListnotice->m_pScrollBar->SetVisible(0);
+	if (m_pChatListnotice)
+	{
+		m_pChatListnotice->m_nPosX = 490.0f * RenderDevice::m_fWidthRatio;
+		m_pChatListnotice->m_nPosX = 440.0f * RenderDevice::m_fHeightRatio;
+		m_pChatListnotice->m_pScrollBar->SetVisible(0);
+	}
 
 	m_pAutoRunBtn = (SButton*)m_pControlContainer->FindControl(316);
 	m_pSysMsgList = (SListBox*)m_pControlContainer->FindControl(5695);
 	m_PkButton = (SButton*)m_pControlContainer->FindControl(65786);
 
-	m_PkButton->SetSelected(TMFieldScene::m_bPK == 0);
+	if (m_PkButton)
+		m_PkButton->SetSelected(TMFieldScene::m_bPK == 0);
 	m_pPGTText = (SText*)m_pControlContainer->FindControl(645);
 
 	char szStr[128]{};
@@ -967,35 +976,47 @@ int TMFieldScene::InitializeScene()
 
 	SPanel* pChatPanel = (SPanel*)m_pControlContainer->FindControl(TMP_CHAT_PANEL);
 	m_pChatPanel = (SPanel*)m_pControlContainer->FindControl(TMP_CHAT_PANEL);
-	m_pChatList->m_nPosX = BASE_ScreenResize(10.0f);
-	m_pChatList->m_nPosY = (pChatPanel->m_nPosY - m_pChatList->m_nHeight) - BASE_ScreenResize(10.0f);
+	if (m_pChatList)
+	{
+		m_pChatList->m_nPosX = BASE_ScreenResize(10.0f);
+		m_pChatList->m_nPosY = (pChatPanel->m_nPosY - m_pChatList->m_nHeight) - BASE_ScreenResize(10.0f);
+	}
 
-	m_pChatBack->m_nPosX = BASE_ScreenResize(10.0f);
-	m_pChatBack->m_nPosY = m_pChatList->m_nPosY - BASE_ScreenResize(10.0f);
+	if (m_pChatBack)
+	{
+		m_pChatBack->m_nPosX = BASE_ScreenResize(10.0f);
+		m_pChatBack->m_nPosY = m_pChatList->m_nPosY - BASE_ScreenResize(10.0f);
 
-	m_pChatBack->SetSize(BASE_ScreenResize(10.0f) + m_pChatList->m_nWidth,
-		BASE_ScreenResize(20.0f) + m_pChatList->m_nHeight);
+		m_pChatBack->SetSize(BASE_ScreenResize(10.0f) + m_pChatList->m_nWidth,
+			BASE_ScreenResize(20.0f) + m_pChatList->m_nHeight);
+	}
 	m_pChatList->SetSize(m_pChatList->m_nWidth,
 		(float)(140 * m_nChatListSize + 60) * RenderDevice::m_fHeightRatio);
-	m_pChatBack->SetSize(BASE_ScreenResize(10.0f) + m_pChatList->m_nWidth,
-		m_pChatList->m_nHeight);
+	if (m_pChatBack)
+		m_pChatBack->SetSize(BASE_ScreenResize(10.0f) + m_pChatList->m_nWidth,
+			m_pChatList->m_nHeight);
 	m_pChatList->m_pScrollBar->SetSize(m_pChatList->m_pScrollBar->m_nWidth,
 		(float)(140 * m_nChatListSize + 60) * RenderDevice::m_fHeightRatio);
 	m_pChatList->m_pScrollBar->m_pBackground1->SetSize(m_pChatList->m_pScrollBar->m_nWidth,
 		(float)(140 * m_nChatListSize + 60) * RenderDevice::m_fHeightRatio);
 	m_pChatList->SetPos(m_pChatList->m_nPosX, (float)(pChatPanel->m_nPosY - m_pChatList->m_nHeight) - 4.0f);
-	m_pChatBack->SetPos(m_pChatList->m_nPosX, (float)(pChatPanel->m_nPosY - m_pChatList->m_nHeight) - 4.0f);
+	if (m_pChatBack)
+		m_pChatBack->SetPos(m_pChatList->m_nPosX, (float)(pChatPanel->m_nPosY - m_pChatList->m_nHeight) - 4.0f);
 
 	m_pChatSelectPanel = (SPanel*)m_pControlContainer->FindControl(90113);
 	m_pChatListPanel = (SPanel*)m_pControlContainer->FindControl(90128);
 	m_pChatType = (SButton*)m_pControlContainer->FindControl(90114);
 
 	SButton* Button = (SButton*)m_pControlContainer->FindControl(90129);
-	m_pChatType->SetText(Button->m_GCPanel.strString);
-	m_pChatListPanel->SetVisible(0);
-	m_pChatSelectPanel->SetVisible(0);
+	if (m_pChatType && Button)
+		m_pChatType->SetText(Button->m_GCPanel.strString);
+	if (m_pChatListPanel)
+		m_pChatListPanel->SetVisible(0);
+	if (m_pChatSelectPanel)
+		m_pChatSelectPanel->SetVisible(0);
 	m_pChatList->m_pScrollBar->m_pBackground1->SetVisible(0);
-	m_pChatListnotice->SetVisible(1);
+	if (m_pChatListnotice)
+		m_pChatListnotice->SetVisible(1);
 	m_pMainInfo2 = (SPanel*)m_pControlContainer->FindControl(TMP_MAIN_INFO2);
 
 	if (m_pMainInfo2)
@@ -1013,7 +1034,8 @@ int TMFieldScene::InitializeScene()
 	if (m_pEditChatPanel)
 	{
 		m_pEditChatPanel->m_nPosY = m_pControlContainer->FindControl(TMP_CHAT_PANEL)->m_nPosY - (float)(2.0f * RenderDevice::m_fHeightRatio);
-		m_pEditChatPanel->m_nPosX = m_pChatSelectPanel->m_nPosX	+ m_pChatSelectPanel->m_nWidth;
+		if (m_pChatSelectPanel)
+			m_pEditChatPanel->m_nPosX = m_pChatSelectPanel->m_nPosX	+ m_pChatSelectPanel->m_nWidth;
 
 		if (g_nKeyType != 1)
 			g_nKeyType = 0;
@@ -1239,7 +1261,8 @@ int TMFieldScene::InitializeScene()
 	if (m_pShopPanel)
 	{
 		m_pShopPanel->SetVisible(0);
-		pShopPanel1->m_bSelectEnable = 0;
+		if (pShopPanel1)
+			pShopPanel1->m_bSelectEnable = 0;
 	}
 	m_pCargoPanel = (SPanel*)m_pControlContainer->FindControl(TMP_CARGO_PANEL);
 	m_pCargoPanel1 = (SPanel*)m_pControlContainer->FindControl(TMP_SHOP_PANEL);
@@ -1480,30 +1503,47 @@ int TMFieldScene::InitializeScene()
 	m_pCargoGridList[1] = (SGridControl*)m_pControlContainer->FindControl(67329);
 	m_pCargoGridList[2] = (SGridControl*)m_pControlContainer->FindControl(67330);
 	m_pCargoGrid = m_pCargoGridList[0];
-	m_pCargoGridList[0]->SetVisible(0);
-	m_pCargoGridList[1]->SetVisible(0);
-	m_pCargoGridList[2]->SetVisible(0);
-	m_pCargoGrid->SetVisible(1);
-	m_pCargoGridList[0]->m_bDrawGrid = 1;
-	m_pCargoGridList[0]->m_eGridType = TMEGRIDTYPE::GRID_CARGO;
-	m_pCargoGridList[1]->m_bDrawGrid = 1;
-	m_pCargoGridList[1]->m_eGridType = TMEGRIDTYPE::GRID_CARGO;
-	m_pCargoGridList[2]->m_bDrawGrid = 1;
-	m_pCargoGridList[2]->m_eGridType = TMEGRIDTYPE::GRID_CARGO;
+	if (m_pCargoGrid == nullptr)
+		m_pCargoGrid = (SGridControl*)m_pControlContainer->FindControl(TMG_CARGO_GRID);
+
+	for (int i = 0; i < 3; ++i)
+	{
+		if (m_pCargoGridList[i])
+		{
+			m_pCargoGridList[i]->SetVisible(0);
+			m_pCargoGridList[i]->m_bDrawGrid = 1;
+			m_pCargoGridList[i]->m_eGridType = TMEGRIDTYPE::GRID_CARGO;
+		}
+	}
+
+	if (m_pCargoGrid)
+	{
+		m_pCargoGrid->SetVisible(1);
+		m_pCargoGrid->m_bDrawGrid = 1;
+		m_pCargoGrid->m_eGridType = TMEGRIDTYPE::GRID_CARGO;
+	}
 
 	m_pGridInvList[0] = (SGridControl*)m_pControlContainer->FindControl(67072);
 	m_pGridInvList[1] = (SGridControl*)m_pControlContainer->FindControl(67073);
 	m_pGridInvList[2] = (SGridControl*)m_pControlContainer->FindControl(67074);
 	m_pGridInvList[3] = (SGridControl*)m_pControlContainer->FindControl(67075);
-	m_pGridInvList[0]->SetVisible(0);
-	m_pGridInvList[1]->SetVisible(0);
-	m_pGridInvList[2]->SetVisible(0);
-	m_pGridInvList[3]->SetVisible(0);
+
+	for (int i = 0; i < 4; ++i)
+	{
+		if (m_pGridInvList[i])
+			m_pGridInvList[i]->SetVisible(0);
+	}
+
 	m_pGridInv = m_pGridInvList[0];
-	m_pGridInv->SetVisible(1);
+	if (m_pGridInv == nullptr)
+		m_pGridInv = (SGridControl*)m_pControlContainer->FindControl(TMG_INV_GRID);
+
+	if (m_pGridInv)
+		m_pGridInv->SetVisible(1);
 
 	m_pQuicInvDelete = (SGridControl*)m_pControlContainer->FindControl(67080);
-	m_pQuicInvDelete->m_eGridType = TMEGRIDTYPE::GRID_DELETE;
+	if (m_pQuicInvDelete)
+		m_pQuicInvDelete->m_eGridType = TMEGRIDTYPE::GRID_DELETE;
 	m_pGridHelm = (SGridControl*)m_pControlContainer->FindControl(TMG_HELMET_GRID);
 	m_pGridCoat = (SGridControl*)m_pControlContainer->FindControl(TMG_COAT_GRID);
 	m_pGridPants = (SGridControl*)m_pControlContainer->FindControl(TMG_PANTS_GRID);
@@ -1914,8 +1954,11 @@ int TMFieldScene::InitializeScene()
 	m_pBtnWrite = (SButton*)m_pControlContainer->FindControl(827);
 
 	m_pRPSGamePanel = (SPanel*)m_pControlContainer->FindControl(1616);
-	m_pRPSGamePanel->SetVisible(0);
-	m_pRPSGamePanel->m_bPickable = 0;
+	if (m_pRPSGamePanel)
+	{
+		m_pRPSGamePanel->SetVisible(0);
+		m_pRPSGamePanel->m_bPickable = 0;
+	}
 	m_pRPSGameRock = (SButton*)m_pControlContainer->FindControl(1617);
 	m_pRPSGamePaper = (SButton*)m_pControlContainer->FindControl(1618);
 	m_pRPSGameScissor = (SButton*)m_pControlContainer->FindControl(1619u);
@@ -14549,6 +14592,9 @@ void TMFieldScene::SetAutoSkillNum(int nCount)
 	{
 		for (int i = 1; i <= 10; ++i)
 		{
+			if (m_pAutoSkillPanelChild[i - 1] == nullptr)
+				continue;
+
 			if (i > nCount)
 				m_pAutoSkillPanelChild[i - 1]->SetVisible(0);
 			else
