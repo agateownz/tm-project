@@ -52,6 +52,7 @@ NewApp::NewApp()
     // TODO: Remove hard-coded IP
     sprintf_s(m_szServerIP, "127.0.0.1");
 	CreateConsole();
+
 #endif
 }
 

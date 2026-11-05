@@ -118,11 +118,10 @@ int TMSelectServerScene::InitializeScene()
 	memset(m_pGroupPanel, 0, sizeof m_pGroupPanel);
 
 	InitializeUI();
-
-	m_pLoginPanel = static_cast<SPanel*>(m_pControlContainer->FindControl(P_LOGIN_BOX));
-	m_pLoginBtns[0] = static_cast<SButton*>(m_pControlContainer->FindControl(B_LOGIN_OK));
-	m_pLoginBtns[2] = static_cast<SButton*>(m_pControlContainer->FindControl(B_QUIT));
-	m_pLoginBtns[1] = static_cast<SButton*>(m_pControlContainer->FindControl(B_CREATE_ID));
+	m_pLoginPanel = static_cast<SPanel*>(m_pControlContainer->FindControl(TMP_LOGIN_BOX));
+	m_pLoginBtns[0] = static_cast<SButton*>(m_pControlContainer->FindControl(TMB_LOGIN_OK));
+	m_pLoginBtns[2] = static_cast<SButton*>(m_pControlContainer->FindControl(TMB_QUIT));
+	m_pLoginBtns[1] = static_cast<SButton*>(m_pControlContainer->FindControl(TMB_CREATE_ID));
 
 	m_pLogoPanels[0] = static_cast<SPanel*>(m_pControlContainer->FindControl(TMP_LOGO_PANEL1));
 	m_pLogoPanels[1] = static_cast<SPanel*>(m_pControlContainer->FindControl(TMP_LOGO_PANEL2));
@@ -144,9 +143,9 @@ int TMSelectServerScene::InitializeScene()
 		m_pSelChannelText->m_nPosX += 5.0f;
 	}
 
-	m_pLoginPanelText = static_cast<SText*>(m_pControlContainer->FindControl(T_LOGIN_BOX_TEXT));
-	m_pLoginIDText = static_cast<SText*>(m_pControlContainer->FindControl(T_LOGIN_ID_TEXT));
-	m_pLoginPasswordText = static_cast<SText*>(m_pControlContainer->FindControl(T_LOGIN_PASSWORD_TEXT));
+	m_pLoginPanelText = static_cast<SText*>(m_pControlContainer->FindControl(TMT_LOGIN_BOX_TEXT));
+	m_pLoginIDText = static_cast<SText*>(m_pControlContainer->FindControl(TMT_LOGIN_ID_TEXT));
+	m_pLoginPasswordText = static_cast<SText*>(m_pControlContainer->FindControl(TMT_LOGIN_PASSWORD_TEXT));
 
 	m_pLoginPanelText->m_nPosY += 5.0f;
 
@@ -179,8 +178,8 @@ int TMSelectServerScene::InitializeScene()
 		m_pLogoPanels[1]->SetPos(static_cast<float>(g_pDevice->m_dwScreenWidth) * 0.5f, 10.0f * RenderDevice::m_fHeightRatio + static_cast<float>(nAddHeight));
 	}
 
-	m_pEditID = static_cast<SEditableText*>(m_pControlContainer->FindControl(E_LOGIN_ID));
-	m_pEditPW = static_cast<SEditableText*>(m_pControlContainer->FindControl(E_LOGIN_PASSWORD));
+	m_pEditID = static_cast<SEditableText*>(m_pControlContainer->FindControl(TME_LOGIN_ID));
+	m_pEditPW = static_cast<SEditableText*>(m_pControlContainer->FindControl(TME_LOGIN_PASSWORD));
 
 	g_nServerGroupNum = m_nTextIndex + 1;
 	g_pObjectManager->m_cCharacterSlot = -1;
@@ -212,7 +211,7 @@ int TMSelectServerScene::InitializeScene()
 		nUserCount[i] = -1;
 
 	BASE_GetHttpRequest((char*)&g_pServerList, szUserCount, 1024);
-
+    sprintf_s(szUserCount, 1024, "%d %d %d %d %d %d %d %d %d %d", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 	sscanf_s(szUserCount, "%d\\n%d\\n%d\\n%d\\n%d\\n%d\\n%d\\n%d\\n%d\\n%d\\n%d\\n",
 		&nUserCount[0], &nUserCount[1], &nUserCount[2], &nUserCount[3], &nUserCount[4], &nUserCount[5],
 		&nUserCount[6], &nUserCount[7], &nUserCount[8], &nUserCount[9], &nUserCount[10]);
@@ -383,7 +382,7 @@ int TMSelectServerScene::OnControlEvent(unsigned int idwControlID, unsigned int 
 	int nIndexN = g_nServerCountList[nMaxGroupN - idwEvent - 1] - 1;
 	switch (idwControlID)
 	{
-	case L_SELECT_SERVERG:
+	case TML_SELECT_SERVERG:
 	{
 		char szStr[128] = { 0 };
 
@@ -578,9 +577,9 @@ int TMSelectServerScene::OnControlEvent(unsigned int idwControlID, unsigned int 
 	SwapLauncher();
 
 	break;
-	case B_SERVER_SEL_OK:
+	case TMB_SELSERVER_OK:
 	{
-		int nServerGroupIndex = g_nServerCountList[nIndexN - m_pNServerGroupList->GetSelectedIndex() - 1] - 1;
+		int nServerGroupIndex = g_nServerCountList[nIndexN - m_pNServerGroupList->GetSelectedIndex() - 1];
 		int nServerIndex = m_pNServerList->GetSelectedIndex() + 1;
 
 		SListBoxServerItem* pItem = static_cast<SListBoxServerItem*>(m_pNServerList->GetItem(nServerIndex - 1));
@@ -643,7 +642,7 @@ int TMSelectServerScene::OnControlEvent(unsigned int idwControlID, unsigned int 
 
 	switch (idwControlID)
 	{
-		case B_LOGIN_OK:
+		case TMB_LOGIN_OK:
 		{
 			unsigned int LiveTime = g_pTimerManager->GetServerTime();
 			if (LastSendMsgTime + 1500 > LiveTime)
@@ -761,17 +760,17 @@ int TMSelectServerScene::OnControlEvent(unsigned int idwControlID, unsigned int 
 			LastSendMsgTime = g_pTimerManager->GetServerTime();
 		}
 		break;
-		case B_CREATE_ID:
+		case TMB_CREATE_ID:
 			m_pMessageBox->SetMessage(g_pMessageStringTable[9], B_CREATE_ID, g_pMessageStringTable[10]);
 			m_pMessageBox->SetVisible(1);
 			break;
-		case B_QUIT:
+		case TMB_QUIT:
 			m_pMessageBox->SetMessage(g_pMessageStringTable[11], B_QUIT, nullptr);
 			m_pMessageBox->SetVisible(1);
 			break;
 	}
 
-	if (idwControlID == B_SERVER_SEL_EXIT)
+	if (idwControlID == TMB_SELSERVER_EXIT)
 	{
 		m_pMessageBox->SetMessage(g_pMessageStringTable[22], B_QUIT, nullptr);
 		m_pMessageBox->SetVisible(1);
@@ -1341,11 +1340,13 @@ void TMSelectServerScene::SetAlphaVirtualkey(unsigned int dwStartTime, unsigned 
 void TMSelectServerScene::InitializeUI()
 {
 	SListBoxItem* pGroupItem[11];
-	m_pNServerSelect = (SPanel*)m_pControlContainer->FindControl(P_SERVER_SEL);
+	m_pNServerSelect = (SPanel*)m_pControlContainer->FindControl(TMP_SELSERVER);
 	m_pNServerSelect->SetVisible(1);
 
-	m_pNServerGroupList = (SListBox*)m_pControlContainer->FindControl(L_SELECT_SERVERG);
-	m_pNServerList = (SListBox*)m_pControlContainer->FindControl(L_SELECT_SERVER);
+	m_pNServerGroupList =
+            (SListBox*)m_pControlContainer->FindControl(TML_SELECT_SERVERG);
+        m_pNServerList =
+            (SListBox*)m_pControlContainer->FindControl(TML_SELECT_SERVER);
 
 	if (m_pNServerList)
 		m_pNServerList->SetVisible(0);

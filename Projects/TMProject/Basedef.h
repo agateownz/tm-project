@@ -775,7 +775,9 @@ struct MSG_Mission
 	char CarryPos[8];
 };
 
+
 constexpr auto MSG_CNFAccountLogin_Opcode = 0x10A;
+#pragma pack(push, 1)
 struct MSG_CNFAccountLogin
 {
 	MSG_STANDARD Header;
@@ -787,6 +789,7 @@ struct MSG_CNFAccountLogin
 	int SSN1;
 	int SSN2;
 };
+#pragma pack(pop)
 
 constexpr auto MSG_UseItem_Opcode = 0x373;
 struct MSG_UseItem

@@ -917,15 +917,10 @@ void ObjectManager::InitCurseList()
 	if (fpBin == nullptr)
 		return;
 
-	fread(&g_pCurseList.dnum, 4, 1, fpBin);
-
-	g_pCurseList.pCurseList = new stCurse[g_pCurseList.dnum * sizeof(stCurse)];
-	for (size_t i = 0; i < g_pCurseList.dnum - 1; ++i)
-	{
-		fread(&g_pCurseList.pCurseList[i], sizeof(stCurse), 1, fpBin);
-		// fread(g_pCurseList.pCurseList[i].szTrans, sizeof(stCurse), 1, fpBin);
-	}
-
+	// 748 reads only the full 8192 bytes in one go.
+    g_pCurseList.dnum = 256;
+    g_pCurseList.pCurseList = new stCurse[g_pCurseList.dnum * sizeof(stCurse)];
+    fread(&g_pCurseList.pCurseList[0], sizeof(stCurse), g_pCurseList.dnum, fpBin);
 	fclose(fpBin);
 }
 

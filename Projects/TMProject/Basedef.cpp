@@ -301,11 +301,14 @@ int BASE_ReadMessageBin()
 {
 	memset(g_pMessageStringTable, 0, sizeof g_pMessageStringTable);
 
-	int size = 256000;
+    // count = 440
+    // each = 128
+	int size = 440 * 128; // 440 strings of 128 length each
+	int checksum = 0;
 	FILE* pFile = nullptr;
+
 	fopen_s(&pFile, Strdef_Path, "rb");
 
-	int checksum = 0;	
 	if (pFile)
 	{
 		fread(g_pMessageStringTable, size, 1u, pFile);
@@ -314,13 +317,13 @@ int BASE_ReadMessageBin()
 	}
 
 	if (checksum != BASE_GetSum((char*)g_pMessageStringTable, size))
-		return 0;
+		return FALSE;
 
 	for (int i = 0; i < 2000; ++i)
 		for (int k = 0; k < 128; ++k)
 			g_pMessageStringTable[i][k] ^= 0x5A;
 
-	return 1;
+	return TRUE;
 }
 
 void BASE_InitEffectString()
