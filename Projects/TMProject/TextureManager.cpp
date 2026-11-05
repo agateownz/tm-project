@@ -1445,6 +1445,14 @@ void TextureManager::Release_GuildMarkList()
 
 int TextureManager::InitRenderTargetTexture()
 {
+	// 748 uses no off-screen post-processing targets. The 755/760 code created
+	// D3DUSAGE_RENDERTARGET textures in D3DPOOL_MANAGED, which is invalid in
+	// D3D9 and made every device init fail here. None of these textures are
+	// sampled anywhere in this codebase, so keep the call site working without
+	// allocating them.
+	return 1;
+
+#if 0
 	RenderDevice* pRenderDevice = g_pApp->m_pRenderDevice;
 	if (FAILED(D3DXCreateTexture(
 		pRenderDevice->m_pd3dDevice,
@@ -1558,4 +1566,5 @@ int TextureManager::InitRenderTargetTexture()
 	}
 
 	return 1;
+#endif
 }
