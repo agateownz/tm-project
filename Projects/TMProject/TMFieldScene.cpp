@@ -672,22 +672,22 @@ int TMFieldScene::InitializeScene()
 	if (m_pQuizBG)
 		m_pQuizBG->SetVisible(0);
 
-	m_pChatList = (SListBox*)m_pControlContainer->FindControl(65667);
+	m_pChatList = (SListBox*)m_pControlContainer->FindControl(TML_CHATLIST);
 	m_pChatListnotice = (SListBox*)m_pControlContainer->FindControl(65944);
 	m_pChatBack = (SPanel*)m_pControlContainer->FindControl(65943);
-	m_pChatGeneral = (SButton*)m_pControlContainer->FindControl(65677);
-	m_pChatParty = (SButton*)m_pControlContainer->FindControl(65678);
-	m_pChatWhisper = (SButton*)m_pControlContainer->FindControl(65679);
-	m_pChatGuild = (SButton*)m_pControlContainer->FindControl(65680);
-	m_pChatGeneral_C = (SButton*)m_pControlContainer->FindControl(65673);
-	m_pChatParty_C = (SButton*)m_pControlContainer->FindControl(65674);
-	m_pChatWhisper_C = (SButton*)m_pControlContainer->FindControl(65675);
-	m_pChatGuild_C = (SButton*)m_pControlContainer->FindControl(65676);
+	m_pChatGeneral = (SButton*)m_pControlContainer->FindControl(TMB_CHAT_GENERAL);
+	m_pChatParty = (SButton*)m_pControlContainer->FindControl(TMB_CHAT_PARTY);
+	m_pChatWhisper = (SButton*)m_pControlContainer->FindControl(TMB_CHAT_WHISPER);
+	m_pChatGuild = (SButton*)m_pControlContainer->FindControl(TMB_CHAT_GUILD);
+	m_pChatGeneral_C = (SButton*)m_pControlContainer->FindControl(TMB_CHAT_GENERAL_C);
+	m_pChatParty_C = (SButton*)m_pControlContainer->FindControl(TMB_CHAT_PARTY_C);
+	m_pChatWhisper_C = (SButton*)m_pControlContainer->FindControl(TMB_CHAT_WHISPER_C);
+	m_pChatGuild_C = (SButton*)m_pControlContainer->FindControl(TMB_CHAT_GUILD_C);
 	m_pKingdomText = (SText*)m_pControlContainer->FindControl(131072);
 	m_pKingDomGuild = (SButton*)m_pControlContainer->FindControl(131074);
 	m_pKingDomGuild_C = (SButton*)m_pControlContainer->FindControl(131073);
-	m_pQuestBtn = (SButton*)m_pControlContainer->FindControl(65793);
-	m_pHelpBtn = (SButton*)m_pControlContainer->FindControl(65795);
+	m_pQuestBtn = (SButton*)m_pControlContainer->FindControl(TMB_QUESTLOG);
+	m_pHelpBtn = (SButton*)m_pControlContainer->FindControl(TMB_HELP);
 	m_pccmode = (SPanel*)m_pControlContainer->FindControl(66817);
 
 	m_pccmode->SetVisible(0);
@@ -719,7 +719,7 @@ int TMFieldScene::InitializeScene()
 	char szStr[128]{};
 	sprintf(szStr, " %s", g_pMessageStringTable[157]);
 
-	m_pAutoSkillPanel = (SPanel*)m_pControlContainer->FindControl(65648);
+	m_pAutoSkillPanel = (SPanel*)m_pControlContainer->FindControl(TMP_SKILL_SEL);
 	m_pAutoSkillPanelChild[0] = (SPanel*)m_pControlContainer->FindControl(65775);
 	m_pAutoSkillPanelChild[1] = (SPanel*)m_pControlContainer->FindControl(65776);
 	m_pAutoSkillPanelChild[2] = (SPanel*)m_pControlContainer->FindControl(65777);
@@ -756,7 +756,7 @@ int TMFieldScene::InitializeScene()
 	if (m_pPositionText)
 		m_pPositionText->SetVisible(0);
 
-	m_pFadePanel = (SPanel*)m_pControlContainer->FindControl(65566);
+	m_pFadePanel = (SPanel*)m_pControlContainer->FindControl(TMP_FADEOUT);
 	if (m_pFadePanel)
 		m_pFadePanel->m_bSelectEnable = 0;
 
@@ -764,7 +764,7 @@ int TMFieldScene::InitializeScene()
 	if (pUnderBGPanel)
 		pUnderBGPanel->m_bSelectEnable = 0;
 
-	m_pEditChat = (SEditableText*)m_pControlContainer->FindControl(65671);
+	m_pEditChat = (SEditableText*)m_pControlContainer->FindControl(TME_CHAT);
 	m_pInputBG2 = (SPanel*)m_pControlContainer->FindControl(574);
 
 	if (m_pInputBG2)
@@ -772,7 +772,7 @@ int TMFieldScene::InitializeScene()
 	if (m_pEditChat)
 		m_pEditChat->SetVisible(1);
 
-	m_pEditChat = (SEditableText*)m_pControlContainer->FindControl(65671);
+	m_pEditChat = (SEditableText*)m_pControlContainer->FindControl(TME_CHAT);
 	m_pInputBG2 = (SPanel*)m_pControlContainer->FindControl(574);
 
 	if (m_pInputBG2)
@@ -790,17 +790,17 @@ int TMFieldScene::InitializeScene()
 
 	m_pFadePanel->SetSize((float)g_pDevice->m_dwScreenWidth, (float)g_pDevice->m_dwScreenHeight);
 
-	m_pKingDomFlag = (SPanel*)m_pControlContainer->FindControl(65768);
+	m_pKingDomFlag = (SPanel*)m_pControlContainer->FindControl(TMP_KINGDOMFLAG);
 	if (m_pKingDomFlag)
 		m_pKingDomFlag->SetVisible(0);
 
-	m_pFlagDesc = (SPanel*)m_pControlContainer->FindControl(65771);
+	m_pFlagDesc = (SPanel*)m_pControlContainer->FindControl(TMP_DESCPANEL2);
 	if (m_pFlagDesc)
 		m_pFlagDesc->SetVisible(0);
 
-	m_pFlagDescText[0] = (SText*)m_pControlContainer->FindControl(65772);
-	m_pFlagDescText[1] = (SText*)m_pControlContainer->FindControl(65773);
-	m_pFlagDescText[2] = (SText*)m_pControlContainer->FindControl(65774);
+	m_pFlagDescText[0] = (SText*)m_pControlContainer->FindControl(TMT_DESC2NAME);
+	m_pFlagDescText[1] = (SText*)m_pControlContainer->FindControl(TMT_DESC2PARAM1);
+	m_pFlagDescText[2] = (SText*)m_pControlContainer->FindControl(TMT_DESC2PARAM2);
 
 	if (m_pKingDomFlag)
 		m_pKingDomFlag->m_pDescPanel = m_pFlagDesc;
@@ -887,14 +887,14 @@ int TMFieldScene::InitializeScene()
 			525.0f * RenderDevice::m_fHeightRatio);
 	}
 
-	m_pMoney1 = (SText*)m_pControlContainer->FindControl(65564u);
+	m_pMoney1 = (SText*)m_pControlContainer->FindControl(TMT_MONEY_TEXT);
 	m_pMoney4 = (SText*)m_pControlContainer->FindControl(94221u);
-	m_pSkBonus = (SText*)m_pControlContainer->FindControl(65600u);
-	m_pCHP = (SText*)m_pControlContainer->FindControl(65614u);
-	m_pCMP = (SText*)m_pControlContainer->FindControl(65616u);
-	m_pExpLamp[0] = (SPanel*)m_pControlContainer->FindControl(65637u);
-	m_pExpLamp[1] = (SPanel*)m_pControlContainer->FindControl(65638u);
-	m_pExpLamp[2] = (SPanel*)m_pControlContainer->FindControl(65639u);
+	m_pSkBonus = (SText*)m_pControlContainer->FindControl(TMT_SKILL_BONUS);
+	m_pCHP = (SText*)m_pControlContainer->FindControl(TMT_CURRENT_HP);
+	m_pCMP = (SText*)m_pControlContainer->FindControl(TMT_CURRENT_MP);
+	m_pExpLamp[0] = (SPanel*)m_pControlContainer->FindControl(TMP_EXP_PROGRESS_G1);
+	m_pExpLamp[1] = (SPanel*)m_pControlContainer->FindControl(TMP_EXP_PROGRESS_G2);
+	m_pExpLamp[2] = (SPanel*)m_pControlContainer->FindControl(TMP_EXP_PROGRESS_G3);
 	m_pExpProgress[0] = (SProgressBar*)m_pControlContainer->FindControl(65655u);
 	m_pExpProgress[1] = (SProgressBar*)m_pControlContainer->FindControl(65656u);
 	m_pExpProgress[2] = (SProgressBar*)m_pControlContainer->FindControl(65657u);
@@ -914,25 +914,25 @@ int TMFieldScene::InitializeScene()
 	sprintf(chtmp, "%d", g_GameAuto_mountValue);
 	m_pCCModeMountSte->SetText(chtmp, 0);
 
-	m_pCIName = (SText*)m_pControlContainer->FindControl(65703u);
-	m_pCIClass = (SText*)m_pControlContainer->FindControl(65707u);
-	m_pCIClass2 = (SText*)m_pControlContainer->FindControl(65708u);
-	m_pCIHP = (SText*)m_pControlContainer->FindControl(65729u);
-	m_pCIMP = (SText*)m_pControlContainer->FindControl(65731u);
-	m_pCIEXP = (SText*)m_pControlContainer->FindControl(65710u);
-	m_pCIEXPE = (SText*)m_pControlContainer->FindControl(65711u);
-	m_pCLevel = (SText*)m_pControlContainer->FindControl(65713u);
-	m_pScBonus = (SText*)m_pControlContainer->FindControl(65727u);
-	m_pCIStr = (SText*)m_pControlContainer->FindControl(65715u);
-	m_pCIInt = (SText*)m_pControlContainer->FindControl(65718u);
-	m_pCIDex = (SText*)m_pControlContainer->FindControl(65721u);
-	m_pCICon = (SText*)m_pControlContainer->FindControl(65724u);
-	m_pCIFakeExp = (SText*)m_pControlContainer->FindControl(65767u);
-	m_pCISpecial1 = (SText*)m_pControlContainer->FindControl(65753u);
-	m_pCISpecial2 = (SText*)m_pControlContainer->FindControl(65756u);
-	m_pCISpecial3 = (SText*)m_pControlContainer->FindControl(65759u);
-	m_pCISpecial4 = (SText*)m_pControlContainer->FindControl(65762u);
-	m_pSpBonus = (SText*)m_pControlContainer->FindControl(65765u);
+	m_pCIName = (SText*)m_pControlContainer->FindControl(TMT_CI_NAME);
+	m_pCIClass = (SText*)m_pControlContainer->FindControl(TMT_CI_CLASS);
+	m_pCIClass2 = (SText*)m_pControlContainer->FindControl(TMT_CI_CLASS2);
+	m_pCIHP = (SText*)m_pControlContainer->FindControl(TMT_CI_HP);
+	m_pCIMP = (SText*)m_pControlContainer->FindControl(TMT_CI_MP);
+	m_pCIEXP = (SText*)m_pControlContainer->FindControl(TMT_CI_EXP);
+	m_pCIEXPE = (SText*)m_pControlContainer->FindControl(TMT_CI_EXP_E);
+	m_pCLevel = (SText*)m_pControlContainer->FindControl(TMT_CI_LEVEL);
+	m_pScBonus = (SText*)m_pControlContainer->FindControl(TMT_CI_SCOREPOINT);
+	m_pCIStr = (SText*)m_pControlContainer->FindControl(TMT_CI_STR);
+	m_pCIInt = (SText*)m_pControlContainer->FindControl(TMT_CI_INT);
+	m_pCIDex = (SText*)m_pControlContainer->FindControl(TMT_CI_DEX);
+	m_pCICon = (SText*)m_pControlContainer->FindControl(TMT_CI_CON);
+	m_pCIFakeExp = (SText*)m_pControlContainer->FindControl(TMT_CI_FAKEEXPPOINT);
+	m_pCISpecial1 = (SText*)m_pControlContainer->FindControl(TMT_CI_SPECIAL1);
+	m_pCISpecial2 = (SText*)m_pControlContainer->FindControl(TMT_CI_SPECIAL2);
+	m_pCISpecial3 = (SText*)m_pControlContainer->FindControl(TMT_CI_SPECIAL3);
+	m_pCISpecial4 = (SText*)m_pControlContainer->FindControl(TMT_CI_SPECIAL4);
+	m_pSpBonus = (SText*)m_pControlContainer->FindControl(TMT_CI_SPECIALPOINT);
 	m_pMoney2 = (SText*)m_pControlContainer->FindControl(1041u);
 	m_pMoney3 = (SText*)m_pControlContainer->FindControl(6408u);
 
@@ -942,22 +942,22 @@ int TMFieldScene::InitializeScene()
 	for (int i = 0; i < 12; ++i)
 		m_pSkillSecGrid2[i] = (SGridControl*)m_pControlContainer->FindControl(i + 94208);
 
-	m_pDamage = (SText*)m_pControlContainer->FindControl(65733u);
-	m_pSkillDam = (SText*)m_pControlContainer->FindControl(65735u);
-	m_pSpeed = (SText*)m_pControlContainer->FindControl(65737u);
-	m_pDefence = (SText*)m_pControlContainer->FindControl(65739u);
-	m_pAttackSpeed = (SText*)m_pControlContainer->FindControl(65741u);
-	m_pCritical = (SText*)m_pControlContainer->FindControl(65743u);
-	m_pRegist1 = (SText*)m_pControlContainer->FindControl(65745u);
-	m_pRegist2 = (SText*)m_pControlContainer->FindControl(65747u);
-	m_pRegist3 = (SText*)m_pControlContainer->FindControl(65749u);
-	m_pRegist4 = (SText*)m_pControlContainer->FindControl(65751u);
+	m_pDamage = (SText*)m_pControlContainer->FindControl(TMT_CI_ATT);
+	m_pSkillDam = (SText*)m_pControlContainer->FindControl(TMT_CI_ATRT);
+	m_pSpeed = (SText*)m_pControlContainer->FindControl(TMT_CI_SPEED);
+	m_pDefence = (SText*)m_pControlContainer->FindControl(TMT_CI_DFE);
+	m_pAttackSpeed = (SText*)m_pControlContainer->FindControl(TMT_CI_DFBT);
+	m_pCritical = (SText*)m_pControlContainer->FindControl(TMT_CI_CRITICAL);
+	m_pRegist1 = (SText*)m_pControlContainer->FindControl(TMT_CI_HOLY);
+	m_pRegist2 = (SText*)m_pControlContainer->FindControl(TMT_CI_THUNDER);
+	m_pRegist3 = (SText*)m_pControlContainer->FindControl(TMT_CI_FIRE);
+	m_pRegist4 = (SText*)m_pControlContainer->FindControl(TMT_CI_ICE);
 	m_pSLPanel1 = (SPanel*)m_pControlContainer->FindControl(1923u);
 	m_pSLPanel2 = (SPanel*)m_pControlContainer->FindControl(1924u);
 	m_pSLPanel3 = (SPanel*)m_pControlContainer->FindControl(1925u);
 	m_pSkillCover = (SPanel*)m_pControlContainer->FindControl(1157u);
-	m_pMainInfo1 = (SPanel*)m_pControlContainer->FindControl(65628u);
-	m_pMainInfo1_BG = (SPanel*)m_pControlContainer->FindControl(65641u);
+	m_pMainInfo1 = (SPanel*)m_pControlContainer->FindControl(TMP_MAIN_INFO1);
+	m_pMainInfo1_BG = (SPanel*)m_pControlContainer->FindControl(TMP_MAIN_INFO1_BG);
 
 	m_pMainInfo1_BG->SetPos(((float)g_pDevice->m_dwScreenWidth - m_pMainInfo1_BG->m_nWidth) / 2.0f,
 		m_pMainInfo1_BG->m_nPosX);
@@ -965,8 +965,8 @@ int TMFieldScene::InitializeScene()
 	m_pMainInfo1->SetStickLeft();
 	m_pMainInfo1->SetStickBottom();
 
-	SPanel* pChatPanel = (SPanel*)m_pControlContainer->FindControl(65672);
-	m_pChatPanel = (SPanel*)m_pControlContainer->FindControl(65672);
+	SPanel* pChatPanel = (SPanel*)m_pControlContainer->FindControl(TMP_CHAT_PANEL);
+	m_pChatPanel = (SPanel*)m_pControlContainer->FindControl(TMP_CHAT_PANEL);
 	m_pChatList->m_nPosX = BASE_ScreenResize(10.0f);
 	m_pChatList->m_nPosY = (pChatPanel->m_nPosY - m_pChatList->m_nHeight) - BASE_ScreenResize(10.0f);
 
@@ -996,23 +996,23 @@ int TMFieldScene::InitializeScene()
 	m_pChatSelectPanel->SetVisible(0);
 	m_pChatList->m_pScrollBar->m_pBackground1->SetVisible(0);
 	m_pChatListnotice->SetVisible(1);
-	m_pMainInfo2 = (SPanel*)m_pControlContainer->FindControl(65610);
+	m_pMainInfo2 = (SPanel*)m_pControlContainer->FindControl(TMP_MAIN_INFO2);
 
 	if (m_pMainInfo2)
 	{
 		m_pMainInfo2->SetAutoSize();
 		m_pMainInfo2->SetStickLeft();
 		m_pMainInfo2->SetStickTop();
-		m_pMainInfo2_Name = (SText*)m_pControlContainer->FindControl(65611);
+		m_pMainInfo2_Name = (SText*)m_pControlContainer->FindControl(TMT_MAIN_INFO2_NAME);
 		m_pMainInfo2->SetVisible(0);
 	}
 
-	m_pMainInfo2_Lv = (SText*)m_pControlContainer->FindControl(65613);
-	m_pEditChatPanel = (SPanel*)m_pControlContainer->FindControl(65670);
+	m_pMainInfo2_Lv = (SText*)m_pControlContainer->FindControl(TMT_MAIN_INFO2_LEVEL);
+	m_pEditChatPanel = (SPanel*)m_pControlContainer->FindControl(TMP_CHAT);
 
 	if (m_pEditChatPanel)
 	{
-		m_pEditChatPanel->m_nPosY = m_pControlContainer->FindControl(65672)->m_nPosY - (float)(2.0f * RenderDevice::m_fHeightRatio);
+		m_pEditChatPanel->m_nPosY = m_pControlContainer->FindControl(TMP_CHAT_PANEL)->m_nPosY - (float)(2.0f * RenderDevice::m_fHeightRatio);
 		m_pEditChatPanel->m_nPosX = m_pChatSelectPanel->m_nPosX	+ m_pChatSelectPanel->m_nWidth;
 
 		if (g_nKeyType != 1)
@@ -1023,25 +1023,25 @@ int TMFieldScene::InitializeScene()
 		m_pChatPanel->SetVisible(1);
 	}
 
-	m_pMiniBtn = (SButton*)m_pControlContainer->FindControl(65787);
-	m_pMiniPanel = (SPanel*)m_pControlContainer->FindControl(65788);
+	m_pMiniBtn = (SButton*)m_pControlContainer->FindControl(TMP_MINIBTNPANEL_BTN);
+	m_pMiniPanel = (SPanel*)m_pControlContainer->FindControl(TMP_MINIBTNPANEL);
 
 	if (m_pMiniPanel)
 		m_pMiniPanel->SetVisible(0);
 
-	m_pShortSkillPanel = (SPanel*)m_pControlContainer->FindControl(65642);
-	m_pShortSkill_Txt = (SText*)m_pControlContainer->FindControl(65643);
-	m_pCISp1Caption = (SText*)m_pControlContainer->FindControl(65755);
-	m_pCISp2Caption = (SText*)m_pControlContainer->FindControl(65758);
-	m_pCISp3Caption = (SText*)m_pControlContainer->FindControl(65761);
-	m_pCISp4Caption = (SText*)m_pControlContainer->FindControl(65764);
-	m_pCIGuild = (SText*)m_pControlContainer->FindControl(65705);
-	m_pSkillSec1 = (SText*)m_pControlContainer->FindControl(65570);
-	m_pSkillSec2 = (SText*)m_pControlContainer->FindControl(65571);
-	m_pSkillSec3 = (SText*)m_pControlContainer->FindControl(65572);
-	m_pSkillMSec1 = (SText*)m_pControlContainer->FindControl(65604);
-	m_pSkillMSec2 = (SText*)m_pControlContainer->FindControl(65605);
-	m_pSkillMSec3 = (SText*)m_pControlContainer->FindControl(65606);
+	m_pShortSkillPanel = (SPanel*)m_pControlContainer->FindControl(TMP_SHORTSKILL);
+	m_pShortSkill_Txt = (SText*)m_pControlContainer->FindControl(TMT_SHORTSKILL_TGL);
+	m_pCISp1Caption = (SText*)m_pControlContainer->FindControl(TMT_CI_SPECIAL1_C);
+	m_pCISp2Caption = (SText*)m_pControlContainer->FindControl(TMT_CI_SPECIAL2_C);
+	m_pCISp3Caption = (SText*)m_pControlContainer->FindControl(TMT_CI_SPECIAL3_C);
+	m_pCISp4Caption = (SText*)m_pControlContainer->FindControl(TMT_CI_SPECIAL4_C);
+	m_pCIGuild = (SText*)m_pControlContainer->FindControl(TMT_CI_GUILD);
+	m_pSkillSec1 = (SText*)m_pControlContainer->FindControl(TMT_SKILL_SEC1_C);
+	m_pSkillSec2 = (SText*)m_pControlContainer->FindControl(TMT_SKILL_SEC2_C);
+	m_pSkillSec3 = (SText*)m_pControlContainer->FindControl(TMT_SKILL_SEC3_C);
+	m_pSkillMSec1 = (SText*)m_pControlContainer->FindControl(TMT_SKILLM_SEC1_C);
+	m_pSkillMSec2 = (SText*)m_pControlContainer->FindControl(TMT_SKILLM_SEC2_C);
+	m_pSkillMSec3 = (SText*)m_pControlContainer->FindControl(TMT_SKILLM_SEC3_C);
 
 	for (int id = 0; id < 32; ++id)
 	{
@@ -1049,7 +1049,7 @@ int TMFieldScene::InitializeScene()
 		m_pAffect[id] = (SText*)m_pControlContainer->FindControl(id + 90432);
 	}
 
-	m_pCargoCoin = (SText*)m_pControlContainer->FindControl(65689);
+	m_pCargoCoin = (SText*)m_pControlContainer->FindControl(TMT_CMONEY_TEXT);
 	m_pMyCargoCoin = (SText*)m_pControlContainer->FindControl(812);
 
 	SText* pMyGold = (SText*)m_pControlContainer->FindControl(619);
@@ -1058,9 +1058,9 @@ int TMFieldScene::InitializeScene()
 	pOPGold->m_cComma = 2;
 	pMyGold->SetText((char*)"         0", 0);
 	pOPGold->SetText((char*)"         0", 0);
-	m_pInvenPanel = (SPanel*)m_pControlContainer->FindControl(589832);
+	m_pInvenPanel = (SPanel*)m_pControlContainer->FindControl(TMP_INV_PANEL);
 
-	SPanel* pPanel1 = (SPanel*)m_pControlContainer->FindControl(65565);
+	SPanel* pPanel1 = (SPanel*)m_pControlContainer->FindControl(TMP_INV_PANEL1);
 
 	m_pInvenPanel->SetPos(RenderDevice::m_fWidthRatio * 514.0f,
 		RenderDevice::m_fHeightRatio * 35.0f);
@@ -1089,7 +1089,7 @@ int TMFieldScene::InitializeScene()
 
 	m_pItemMixPanel4 = (SPanel*)m_pControlContainer->FindControl(6432);
 	m_pMix4Desc = (SListBox*)m_pControlContainer->FindControl(6439);
-	m_pItemMixPanel = (SPanel*)m_pControlContainer->FindControl(65857);
+	m_pItemMixPanel = (SPanel*)m_pControlContainer->FindControl(TMP_ITEMMIX_PANEL);
 
 	m_ItemMixClass.Read_MixListFile();
 	m_ItemMixClass.TakeItResource(m_pControlContainer, g_pObjectManager->m_dwCharID);
@@ -1163,7 +1163,7 @@ int TMFieldScene::InitializeScene()
 	m_pParamText[11] = (SText*)m_pControlContainer->FindControl(799);
 	m_pParamText[12] = (SText*)m_pControlContainer->FindControl(800);
 	m_pParamText[13] = (SText*)m_pControlContainer->FindControl(801);
-	m_pSystemPanel = (SPanel*)m_pControlContainer->FindControl(65879);
+	m_pSystemPanel = (SPanel*)m_pControlContainer->FindControl(TMP_SYSTEM);
 
 	if (m_pSystemPanel)
 	{
@@ -1178,7 +1178,7 @@ int TMFieldScene::InitializeScene()
 		m_pPGTPanel->m_bModal = 1;
 		m_pControlContainer->m_pModalControl[2] = m_pPGTPanel;
 	}
-	m_pInputGoldPanel = (SPanel*)m_pControlContainer->FindControl(65885);
+	m_pInputGoldPanel = (SPanel*)m_pControlContainer->FindControl(TMP_INPUT_GOLD);
 	if (m_pInputGoldPanel)
 	{
 		m_pInputGoldPanel->SetVisible(0);
@@ -1204,13 +1204,13 @@ int TMFieldScene::InitializeScene()
 	m_pBtnPGTGIChief1 = (SButton*)m_pControlContainer->FindControl(913);
 	m_pBtnPGTGIChief2 = (SButton*)m_pControlContainer->FindControl(914);
 	m_pBtnPGTGIChief3 = (SButton*)m_pControlContainer->FindControl(915);
-	SControl* pServer = m_pControlContainer->FindControl(65880);
-	SControl* pChar = m_pControlContainer->FindControl(65881);
-	SControl* pQuit = m_pControlContainer->FindControl(65882);
+	SControl* pServer = m_pControlContainer->FindControl(TMB_SYS_SERVER);
+	SControl* pChar = m_pControlContainer->FindControl(TMB_SYS_CHAR);
+	SControl* pQuit = m_pControlContainer->FindControl(TMB_SYS_QUIT);
 	SControl* pCancel = m_pControlContainer->FindControl(5883);
-	m_pCPanel = (SPanel*)m_pControlContainer->FindControl(65696);
+	m_pCPanel = (SPanel*)m_pControlContainer->FindControl(TMP_CHAR_PANEL);
 
-	SPanel* pCPanel1 = (SPanel*)m_pControlContainer->FindControl(65770);
+	SPanel* pCPanel1 = (SPanel*)m_pControlContainer->FindControl(TMP_CHAR_PANEL1);
 	m_pCPanel->SetPos(RenderDevice::m_fWidthRatio * 60.0f,
 		RenderDevice::m_fHeightRatio * 35.0f);
 
@@ -1229,7 +1229,7 @@ int TMFieldScene::InitializeScene()
 		pCPanel1->m_bSelectEnable = 0;
 	}
 
-	m_pShopPanel = (SPanel*)m_pControlContainer->FindControl(65692);
+	m_pShopPanel = (SPanel*)m_pControlContainer->FindControl(TMP_SHOP_PANEL);
 
 	SPanel *pShopPanel1 = (SPanel*)m_pControlContainer->FindControl(65695);
 
@@ -1241,10 +1241,10 @@ int TMFieldScene::InitializeScene()
 		m_pShopPanel->SetVisible(0);
 		pShopPanel1->m_bSelectEnable = 0;
 	}
-	m_pCargoPanel = (SPanel*)m_pControlContainer->FindControl(65686);
-	m_pCargoPanel1 = (SPanel*)m_pControlContainer->FindControl(65692);
+	m_pCargoPanel = (SPanel*)m_pControlContainer->FindControl(TMP_CARGO_PANEL);
+	m_pCargoPanel1 = (SPanel*)m_pControlContainer->FindControl(TMP_SHOP_PANEL);
 
-	SPanel* pCargoPanel1 = (SPanel*)m_pControlContainer->FindControl(65691);
+	SPanel* pCargoPanel1 = (SPanel*)m_pControlContainer->FindControl(TMP_CARGO_PANEL1);
 	m_pCargoPanel->SetPos(RenderDevice::m_fWidthRatio * 287.0f,
 		RenderDevice::m_fHeightRatio * 35.0f);
 	m_pCargoPanel1->SetPos(RenderDevice::m_fWidthRatio * 287.0f,
@@ -1287,9 +1287,9 @@ int TMFieldScene::InitializeScene()
 		m_pLottoPanel->SetVisible(0);
 	}
 
-	m_pSkillMPanel = (SPanel*)m_pControlContainer->FindControl(65602);
-	SPanel* pSkillMPanel1 = (SPanel*)m_pControlContainer->FindControl(65609);
-	m_pSkillMDesc = (SListBox*)m_pControlContainer->FindControl(65608);
+	m_pSkillMPanel = (SPanel*)m_pControlContainer->FindControl(TMP_SKILLM_PANEL);
+	SPanel* pSkillMPanel1 = (SPanel*)m_pControlContainer->FindControl(TMP_SKILLM_PANEL1);
+	m_pSkillMDesc = (SListBox*)m_pControlContainer->FindControl(TML_SKILLM_DESC);
 
 	m_pSkillMPanel->SetPos(RenderDevice::m_fWidthRatio * 60.0f,
 		RenderDevice::m_fHeightRatio * 35.0f);
@@ -1300,10 +1300,10 @@ int TMFieldScene::InitializeScene()
 		pSkillMPanel1->m_bSelectEnable = 0;
 	}
 
-	m_pSkillPanel = (SPanel*)m_pControlContainer->FindControl(65567);
+	m_pSkillPanel = (SPanel*)m_pControlContainer->FindControl(TMP_SKILL_PANEL);
 
-	SPanel* pSkillPanel1 = (SPanel*)m_pControlContainer->FindControl(65601);
-	SText* pSkillBonus = (SText*)m_pControlContainer->FindControl(65600);
+	SPanel* pSkillPanel1 = (SPanel*)m_pControlContainer->FindControl(TMP_SKILL_PANEL1);
+	SText* pSkillBonus = (SText*)m_pControlContainer->FindControl(TMT_SKILL_BONUS);
 
 	m_pSkillPanel->SetPos(RenderDevice::m_fWidthRatio * 514.0f,
 		RenderDevice::m_fHeightRatio * 35.0f);
@@ -1335,18 +1335,18 @@ int TMFieldScene::InitializeScene()
 	m_pStorePageBtn3 = (SButton*)m_pControlContainer->FindControl(67334);
 	m_pMGameAutoBtn = (SButton*)m_pControlContainer->FindControl(66818);
 	m_pSetType = (SButton*)m_pControlContainer->FindControl(66821);
-	m_pHPBar = (SProgressBar*)m_pControlContainer->FindControl(65621);
-	m_pMPBar = (SProgressBar*)m_pControlContainer->FindControl(65623);
-	m_pMHPBar = (SProgressBar*)m_pControlContainer->FindControl(65625);
-	m_pMHPBarT = (SProgressBar*)m_pControlContainer->FindControl(65626);
+	m_pHPBar = (SProgressBar*)m_pControlContainer->FindControl(TMP_HP_PROGRESS);
+	m_pMPBar = (SProgressBar*)m_pControlContainer->FindControl(TMP_MP_PROGRESS);
+	m_pMHPBar = (SProgressBar*)m_pControlContainer->FindControl(TMP_MHP_PROGRESS);
+	m_pMHPBarT = (SProgressBar*)m_pControlContainer->FindControl(TMP_MHP_PROGRESS_TR);
 	m_pMainCharName = (SText*)m_pControlContainer->FindControl(69635);
-	m_pCurrentHPText = (SText*)m_pControlContainer->FindControl(65614);
-	m_pMaxHPText = (SText*)m_pControlContainer->FindControl(65615);
-	m_pCurrentMPText = (SText*)m_pControlContainer->FindControl(65616);
-	m_pMaxMPText = (SText*)m_pControlContainer->FindControl(65617);
-	m_pCurrentMHPText = (SText*)m_pControlContainer->FindControl(65618);
-	m_pMaxMHPText = (SText*)m_pControlContainer->FindControl(65619);
-	m_pExpHold = (SPanel*)m_pControlContainer->FindControl(65636);
+	m_pCurrentHPText = (SText*)m_pControlContainer->FindControl(TMT_CURRENT_HP);
+	m_pMaxHPText = (SText*)m_pControlContainer->FindControl(TMT_MAX_HP);
+	m_pCurrentMPText = (SText*)m_pControlContainer->FindControl(TMT_CURRENT_MP);
+	m_pMaxMPText = (SText*)m_pControlContainer->FindControl(TMT_MAX_MP);
+	m_pCurrentMHPText = (SText*)m_pControlContainer->FindControl(TMT_CURRENT_MHP);
+	m_pMaxMHPText = (SText*)m_pControlContainer->FindControl(TMT_MAX_MHP);
+	m_pExpHold = (SPanel*)m_pControlContainer->FindControl(TMP_EXP_HOLD);
 	m_pInfoText = (SText*)m_pControlContainer->FindControl(770);
 
 	if (m_pExpHold)
@@ -1367,8 +1367,8 @@ int TMFieldScene::InitializeScene()
 	m_pQuizPanel->SetPos(((float)g_pDevice->m_dwScreenWidth * 0.5f) - (m_pQuizPanel->m_nWidth * 0.5f),
 		((float)g_pDevice->m_dwScreenHeight * 0.5f) - (200.0f * RenderDevice::m_fHeightRatio));
 
-	m_pEventText = (SText*)m_pControlContainer->FindControl(65669);
-	m_pEventPanel = (SPanel*)m_pControlContainer->FindControl(65668);
+	m_pEventText = (SText*)m_pControlContainer->FindControl(TMT_CHAT_EVENT);
+	m_pEventPanel = (SPanel*)m_pControlContainer->FindControl(TMP_CHAT_EVENT);
 
 	m_pEventText->SetPos(300.0f, 300.0f);
 
@@ -1504,23 +1504,23 @@ int TMFieldScene::InitializeScene()
 
 	m_pQuicInvDelete = (SGridControl*)m_pControlContainer->FindControl(67080);
 	m_pQuicInvDelete->m_eGridType = TMEGRIDTYPE::GRID_DELETE;
-	m_pGridHelm = (SGridControl*)m_pControlContainer->FindControl(65555);
-	m_pGridCoat = (SGridControl*)m_pControlContainer->FindControl(65558);
-	m_pGridPants = (SGridControl*)m_pControlContainer->FindControl(65559);
-	m_pGridGloves = (SGridControl*)m_pControlContainer->FindControl(65560);
-	m_pGridBoots = (SGridControl*)m_pControlContainer->FindControl(65561);
-	m_pGridRight = (SGridControl*)m_pControlContainer->FindControl(65556);
-	m_pGridLeft = (SGridControl*)m_pControlContainer->FindControl(65557);
-	m_pGridGuild = (SGridControl*)m_pControlContainer->FindControl(65548);
-	m_pGridEvent = (SGridControl*)m_pControlContainer->FindControl(65549);
-	m_pGridRing = (SGridControl*)m_pControlContainer->FindControl(65550);
-	m_pGridNecklace = (SGridControl*)m_pControlContainer->FindControl(65551);
-	m_pGridOrb = (SGridControl*)m_pControlContainer->FindControl(65552);
-	m_pGridCabuncle = (SGridControl*)m_pControlContainer->FindControl(65553);
-	m_pGridDRing = (SGridControl*)m_pControlContainer->FindControl(65546);
-	m_pGridMantua = (SGridControl*)m_pControlContainer->FindControl(65547);
-	m_pGridSkillMaster = (SGridControl*)m_pControlContainer->FindControl(65607);
-	m_pGridShop = (SGridControl*)m_pControlContainer->FindControl(65694);
+	m_pGridHelm = (SGridControl*)m_pControlContainer->FindControl(TMG_HELMET_GRID);
+	m_pGridCoat = (SGridControl*)m_pControlContainer->FindControl(TMG_COAT_GRID);
+	m_pGridPants = (SGridControl*)m_pControlContainer->FindControl(TMG_PANTS_GRID);
+	m_pGridGloves = (SGridControl*)m_pControlContainer->FindControl(TMG_GLOVES_GRID);
+	m_pGridBoots = (SGridControl*)m_pControlContainer->FindControl(TMG_BOOTS_GRID);
+	m_pGridRight = (SGridControl*)m_pControlContainer->FindControl(TMG_RIGHT_GRID);
+	m_pGridLeft = (SGridControl*)m_pControlContainer->FindControl(TMG_LEFT_GRID);
+	m_pGridGuild = (SGridControl*)m_pControlContainer->FindControl(TMG_GUILD_GRID);
+	m_pGridEvent = (SGridControl*)m_pControlContainer->FindControl(TMG_EVENT_GRID);
+	m_pGridRing = (SGridControl*)m_pControlContainer->FindControl(TMG_RING_GRID);
+	m_pGridNecklace = (SGridControl*)m_pControlContainer->FindControl(TMG_NECKLACE_GRID);
+	m_pGridOrb = (SGridControl*)m_pControlContainer->FindControl(TMG_ORB_GRID);
+	m_pGridCabuncle = (SGridControl*)m_pControlContainer->FindControl(TMG_CABUNCLE_GRID);
+	m_pGridDRing = (SGridControl*)m_pControlContainer->FindControl(TMG_DRING_GRID);
+	m_pGridMantua = (SGridControl*)m_pControlContainer->FindControl(TMG_MANTUA_GRID);
+	m_pGridSkillMaster = (SGridControl*)m_pControlContainer->FindControl(TMG_SKILLM_GRID);
+	m_pGridShop = (SGridControl*)m_pControlContainer->FindControl(TMG_SHOP_GRID);
 
 	m_pGridShop->m_bDrawGrid = 1;
 	m_pGridShop->m_eGridType = TMEGRIDTYPE::GRID_SHOP;
@@ -1533,14 +1533,14 @@ int TMFieldScene::InitializeScene()
 	m_pGridSkillMaster->m_eGridType = TMEGRIDTYPE::GRID_SKILLM;
 	m_pCargoGrid->m_bDrawGrid = 1;
 	m_pCargoGrid->m_eGridType = TMEGRIDTYPE::GRID_CARGO;
-	m_pGridSkillBelt = (SGridControl*)m_pControlContainer->FindControl(65598);
-	m_pGridSkillBelt2 = (SGridControl*)m_pControlContainer->FindControl(65644);
+	m_pGridSkillBelt = (SGridControl*)m_pControlContainer->FindControl(TMG_SKILL_BELT);
+	m_pGridSkillBelt2 = (SGridControl*)m_pControlContainer->FindControl(TMG_SKILL_BELT2);
 	m_pGridSkillBelt2->m_eGridType = TMEGRIDTYPE::GRID_SKILLB;
-	m_pGridSkillBelt3 = (SGridControl*)m_pControlContainer->FindControl(65645);
+	m_pGridSkillBelt3 = (SGridControl*)m_pControlContainer->FindControl(TMG_SKILL_BELT3);
 	m_pGridSkillBelt3->m_eGridType = TMEGRIDTYPE::GRID_SKILLB;
 	m_pGridSkillBelt3->SetVisible(0);
-	m_pShortSkillTglBtn1 = (SButton*)m_pControlContainer->FindControl(65646);
-	m_pShortSkillTglBtn2 = (SButton*)m_pControlContainer->FindControl(65647);
+	m_pShortSkillTglBtn1 = (SButton*)m_pControlContainer->FindControl(TMB_SHORTSKILL_TGL1);
+	m_pShortSkillTglBtn2 = (SButton*)m_pControlContainer->FindControl(TMB_SHORTSKILL_TGL2);
 	m_pQuick_Sloat[0] = (SGridControl*)m_pControlContainer->FindControl(66560);
 	m_pQuick_Sloat[0]->m_eGridType = TMEGRIDTYPE::GRID_QUICKSLOAT1;
 	m_pQuick_Sloat[1] = (SGridControl*)m_pControlContainer->FindControl(66561);
@@ -2065,7 +2065,7 @@ int TMFieldScene::InitializeScene()
 		m_pTargetAffectIcon[ih] = (SPanel*)m_pControlContainer->FindControl(ih + 90369);
 	}
 
-	m_pAffectDesc = (SText*)m_pControlContainer->FindControl(65798);
+	m_pAffectDesc = (SText*)m_pControlContainer->FindControl(TMT_AFFECT_DESC);
 	m_pAffectDescList[0] = (SText*)m_pControlContainer->FindControl(773);
 	m_pAffectDescList[1] = (SText*)m_pControlContainer->FindControl(774);
 	m_pAffectDescList[2] = (SText*)m_pControlContainer->FindControl(775);
@@ -2143,7 +2143,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 				g_pEventTranslator->SetIMENative();
 		}
 	}
-	else if (idwControlID == E_CHAT && idwEvent == 8)
+	else if (idwControlID == TME_CHAT && idwEvent == 8)
 		return 1;
 	if (idwControlID == TMB_HELLSTORE_OK)
 	{
@@ -2294,7 +2294,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		SetVisibleGamble(0, 0);
 		return 0;
 	}
-	if (idwControlID == E_CHAT && !idwEvent)
+	if (idwControlID == TME_CHAT && !idwEvent)
 	{
 		auto pEditChat = m_pEditChat;
 		if (!strlen(pEditChat->GetText()))
@@ -2742,7 +2742,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 			m_pMyHuman->SetChatMessage(istrText);
 		return 0;
 	}
-	if (idwControlID == E_CHAT && (idwEvent == 2 || idwEvent == 3))
+	if (idwControlID == TME_CHAT && (idwEvent == 2 || idwEvent == 3))
 	{
 		char szText[128]{};
 		sprintf_s(szText, m_szLastChatList[m_sChatIndex]);
@@ -2752,7 +2752,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		m_sChatIndex %= 5;
 		return 0;
 	}
-	if (idwControlID == E_CHAT && (idwEvent == 4 || idwEvent == 5))
+	if (idwControlID == TME_CHAT && (idwEvent == 4 || idwEvent == 5))
 	{
 		char szWhisperList[19]{};
 		sprintf(szWhisperList, "/%s ", m_szWhisperList[m_sWhisperIndex]);
@@ -2762,18 +2762,18 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		m_sWhisperIndex %= 5;
 		return 0;
 	}
-	if (idwControlID == E_CHAT && idwEvent == 6)
+	if (idwControlID == TME_CHAT && idwEvent == 6)
 	{
 		m_pEditChat->SetText((char*)"");
 		return 0;
 	}
-	if (idwControlID == B_MONEY)
+	if (idwControlID == TMB_MONEY)
 	{
 		if (m_pMyHuman->m_cDie == 1)
 			return 1;
 
-		auto pText = static_cast<SText*>(m_pControlContainer->FindControl(T_INPUT_GOLD));
-		auto pEdit = m_pControlContainer->FindControl(E_INPUT_GOLD);
+		auto pText = static_cast<SText*>(m_pControlContainer->FindControl(TMT_INPUT_GOLD));
+		auto pEdit = m_pControlContainer->FindControl(TME_INPUT_GOLD);
 
 		if (m_pCargoPanel1->IsVisible() == 1)
 		{
@@ -2807,29 +2807,29 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		m_pChatSelectPanel->SetVisible(0);
 		return 0;
 	}
-	if (idwControlID == B_CARGO_MONEY)
+	if (idwControlID == TMB_CARGO_MONEY)
 	{
 		if (m_pMyHuman->m_cDie == 1)
 			return 1;
 
 		if (!m_pAutoTrade || m_pAutoTrade->IsVisible() != 1)
 		{
-			auto pText = static_cast<SText*>(m_pControlContainer->FindControl(T_INPUT_GOLD));
+			auto pText = static_cast<SText*>(m_pControlContainer->FindControl(TMT_INPUT_GOLD));
 
 			if (m_pCargoPanel->IsVisible() == 1)
 			{
 				m_nCoinMsgType = 2;
 				pText->SetText(g_pMessageStringTable[138], 0);
-				m_pControlContainer->SetFocusedControl(m_pControlContainer->FindControl(E_INPUT_GOLD));
+				m_pControlContainer->SetFocusedControl(m_pControlContainer->FindControl(TME_INPUT_GOLD));
 				m_pInputGoldPanel->SetVisible(1);
 				m_pChatSelectPanel->SetVisible(0);
 			}
 		}
 		return 1;
 	}
-	if (idwControlID == B_IG_OK)
+	if (idwControlID == TMB_IG_OK)
 	{
-		auto pInputText = static_cast<SEditableText*>(m_pControlContainer->FindControl(E_INPUT_GOLD));
+		auto pInputText = static_cast<SEditableText*>(m_pControlContainer->FindControl(TME_INPUT_GOLD));
 
 		char* inputText = pInputText->GetText();
 
@@ -3198,24 +3198,24 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 
 		return 1;
 	}
-	if (idwControlID == E_INPUT_GOLD)
+	if (idwControlID == TME_INPUT_GOLD)
 	{
 		if (m_pMyHuman->m_cDie == 1 || m_nCoinMsgType == 5)
 			return 1;
 
-		OnControlEvent(B_IG_OK, 0);
+		OnControlEvent(TMB_IG_OK, 0);
 		return 1;
 	}
-	if (idwControlID == B_IG_CANCEL)
+	if (idwControlID == TMB_IG_CANCEL)
 	{
 		SetInVisibleInputCoin();
 		return 0;
 	}
-	if (idwControlID == B_INV_CLOSE)
+	if (idwControlID == TMB_INV_CLOSE)
 	{
 		SetVisibleInventory();
 
-		auto pEquipBtn = static_cast<SButton*>(m_pControlContainer->FindControl(B_EQUIP));
+		auto pEquipBtn = static_cast<SButton*>(m_pControlContainer->FindControl(TMB_EQUIP));
 
 		pEquipBtn->SetSelected(m_pInvenPanel->m_bVisible);
 
@@ -3224,11 +3224,11 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 
 		return 0;
 	}
-	if (idwControlID == B_CHAR_CLOSE)
+	if (idwControlID == TMB_CHAR_CLOSE)
 	{
 		SetVisibleCharInfo();
 
-		auto pCharBtn = static_cast<SButton*>(m_pControlContainer->FindControl(B_CHAR));
+		auto pCharBtn = static_cast<SButton*>(m_pControlContainer->FindControl(TMB_CHAR));
 
 		pCharBtn->SetSelected(m_pCPanel->m_bVisible);
 
@@ -3237,7 +3237,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 
 		return 0;
 	}
-	if (idwControlID == B_SKILL_CLOSE)
+	if (idwControlID == TMB_SKILL_CLOSE)
 	{
 		SetVisibleSkill();
 
@@ -3246,7 +3246,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 
 		return 0;
 	}
-	if (idwControlID == B_CHAR)
+	if (idwControlID == TMB_CHAR)
 	{
 		auto pATradePanel = static_cast<SPanel*>(m_pControlContainer->FindControl(TMP_ATRADE_PANEL));
 
@@ -3258,7 +3258,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 
 		if (m_pTradePanel->IsVisible() != 1)
 		{
-			auto pCharBtn = static_cast<SButton*>(m_pControlContainer->FindControl(B_CHAR));
+			auto pCharBtn = static_cast<SButton*>(m_pControlContainer->FindControl(TMB_CHAR));
 
 			pCharBtn->SetSelected(pCharBtn->m_bSelected == 0);
 
@@ -3269,9 +3269,9 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 
 		return 1;
 	}
-	if (idwControlID == B_EQUIP)
+	if (idwControlID == TMB_EQUIP)
 	{
-		auto pEquipBtn = static_cast<SButton*>(m_pControlContainer->FindControl(B_EQUIP));
+		auto pEquipBtn = static_cast<SButton*>(m_pControlContainer->FindControl(TMB_EQUIP));
 
 		pEquipBtn->SetSelected(pEquipBtn->m_bSelected == 0);
 
@@ -3646,7 +3646,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		SetVisibleMiniMap();
 		return 0;
 	}
-	if (idwControlID == B_SYSTEM)
+	if (idwControlID == TMB_SYSTEM)
 	{
 		m_pSystemPanel->SetVisible(1);
 		g_pCursor->DetachItem();
@@ -3698,7 +3698,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		m_pControlContainer->SetFocusedControl(0);
 		return 1;
 	}
-	if (idwControlID == B_AUTOTRADEBTN)
+	if (idwControlID == TMB_AUTOTRADEBTN)
 	{
 		if (!m_pMyHuman->IsInTown())
 			return 1;
@@ -3709,7 +3709,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 			VisibleInputTradeName();
 		return 1;
 	}
-	if (idwControlID == B_CHAT_WHISPER)
+	if (idwControlID == TMB_CHAT_WHISPER)
 	{
 		MSG_MessageChat stMsgChat{};
 		stMsgChat.Header.ID = g_pObjectManager->m_dwCharID;
@@ -3718,7 +3718,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		SendOneMessage((char*)&stMsgChat, sizeof(stMsgChat));
 		return 1;
 	}
-	if (idwControlID == B_CHAT_PARTY)
+	if (idwControlID == TMB_CHAT_PARTY)
 	{
 		MSG_MessageChat stMsgChat{};
 		stMsgChat.Header.ID = g_pObjectManager->m_dwCharID;
@@ -3736,7 +3736,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		SendOneMessage((char*)&stMsgChat, sizeof(stMsgChat));
 		return 1;
 	}
-	if (idwControlID == B_CHAT_GUILD)
+	if (idwControlID == TMB_CHAT_GUILD)
 	{
 		MSG_MessageChat stMsgChat{};
 		stMsgChat.Header.ID = g_pObjectManager->m_dwCharID;
@@ -3774,7 +3774,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		SetRunMode();
 		return 0;
 	}
-	if (idwControlID == B_SYS_QUIT)
+	if (idwControlID == TMB_SYS_QUIT)
 	{
 		SetRunMode();
 		if (g_dwStartQuitGameTime)
@@ -3788,7 +3788,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		g_pSocketManager->SendOneMessage((char*)&stParm, sizeof(stParm));
 		return 0;
 	}
-	if (idwControlID == P_MINIBTNPANEL_BTN)
+	if (idwControlID == TMP_MINIBTNPANEL_BTN)
 	{
 		if (m_pMiniPanel->m_bVisible)
 			m_pMiniPanel->SetVisible(0);
@@ -3798,7 +3798,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 			m_pMiniBtn->m_bSelected = m_pMiniPanel->m_bVisible;
 		return 0;
 	}
-	if (idwControlID == B_SYS_SERVER)
+	if (idwControlID == TMB_SYS_SERVER)
 	{
 		if (!m_pServerPanel)
 		{
@@ -3979,7 +3979,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		}
 	}
 
-	if (idwControlID == B_QUEST_BUTTON)
+	if (idwControlID == TMB_QUEST_BUTTON)
 	{
 		if (m_pQuestList[0])
 		{
@@ -4014,7 +4014,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 
 		return 1;
 	}
-	if (idwControlID == B_QUEST_BUTTON2)
+	if (idwControlID == TMB_QUEST_BUTTON2)
 	{
 		if (m_pQuestList[0])
 		{
@@ -4048,7 +4048,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		m_pQuestMemo->SetVisible(0);
 		return 1;
 	}
-	if (idwControlID == B_QUEST_BUTTON3)
+	if (idwControlID == TMB_QUEST_BUTTON3)
 	{
 		if (m_pQuestList[0])
 		{
@@ -4082,7 +4082,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		m_pQuestMemo->SetVisible(0);
 		return 1;
 	}
-	if (idwControlID == B_QUEST_BUTTON4)
+	if (idwControlID == TMB_QUEST_BUTTON4)
 	{
 		if (m_pQuestList[0])
 		{
@@ -4115,7 +4115,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		m_pQuestMemo->SetVisible(0);
 		return 1;
 	}
-	if (idwControlID == B_QUEST_MEMO)
+	if (idwControlID == TMB_QUEST_MEMO)
 	{
 		if (m_pQuestPanel)
 		{
@@ -4245,7 +4245,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 
 		return 0;
 	}
-	if (idwControlID == B_QUEST_QUIT)
+	if (idwControlID == TMB_QUEST_QUIT)
 	{
 		if (m_pQuestPanel)
 		{
@@ -4357,9 +4357,9 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		m_AutoStartPointY = startY;
 		return 1;
 	}
-	if (idwControlID == B_ITEMMIX_RUN)
+	if (idwControlID == TMB_ITEMMIX_RUN)
 	{
-		m_pMessageBox->SetMessage(g_pMessageStringTable[319], B_ITEMMIX_RUN, 0);
+		m_pMessageBox->SetMessage(g_pMessageStringTable[319], TMB_ITEMMIX_RUN, 0);
 		m_pMessageBox->SetVisible(1);
 		return 1;
 	}
@@ -4381,7 +4381,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		m_pMessageBox->SetVisible(1);
 		return 1;
 	}
-	if (idwControlID == B_SHORTSKILL_TGL1)
+	if (idwControlID == TMB_SHORTSKILL_TGL1)
 	{
 		m_pGridSkillBelt2->SetVisible(1);
 		m_pGridSkillBelt3->SetVisible(0);
@@ -4398,7 +4398,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 
 		return 0;
 	}
-	if (idwControlID == B_SHORTSKILL_TGL2)
+	if (idwControlID == TMB_SHORTSKILL_TGL2)
 	{
 		m_pGridSkillBelt2->SetVisible(0);
 		m_pGridSkillBelt3->SetVisible(1);
@@ -4415,7 +4415,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 
 		return 0;
 	}
-	if (idwControlID == B_HELP)
+	if (idwControlID == TMB_HELP)
 	{
 		m_pControlContainer->SetFocusedControl(0);
 		OnKeyHelp(104, 0);
@@ -4428,7 +4428,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 
 		return 0;
 	}
-	if (idwControlID == B_QUESTLOG)
+	if (idwControlID == TMB_QUESTLOG)
 	{
 		int nIsVisible = m_pQuestPanel->IsVisible();
 		m_pQuestPanel->SetVisible(nIsVisible == 0);
@@ -4459,11 +4459,11 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		}
 
 		// Open the mortal quests list as default
-		OnControlEvent(B_QUEST_BUTTON, 0);
+		OnControlEvent(TMB_QUEST_BUTTON, 0);
 		GetSoundAndPlay(51, 0, 0);
 		return 0;
 	}
-	if (idwControlID == 1054260)
+	if (idwControlID == TML_QUEST_LIST)
 	{
 		TMScene::LoadMsgText2(
 			m_pQuestContentList[0],
@@ -4473,7 +4473,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 
 		return 0;
 	}
-	if (idwControlID == 1054263)
+	if (idwControlID == TML_QUEST_LIST2)
 	{
 		TMScene::LoadMsgText2(
 			m_pQuestContentList[1],
@@ -4483,7 +4483,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 
 		return 0;
 	}
-	if (idwControlID == 1054266)
+	if (idwControlID == TML_QUEST_LIST3)
 	{
 		TMScene::LoadMsgText2(
 			m_pQuestContentList[2],
@@ -4492,7 +4492,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 			20 * (idwEvent + 1) - 1);
 		return 0;
 	}
-	if (idwControlID == 1054269)
+	if (idwControlID == TML_QUEST_LIST4)
 	{
 		TMScene::LoadMsgText2(
 			m_pQuestContentList[3],
@@ -4511,7 +4511,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		OnKeyPlus(43, 0);
 		return 0;
 	}
-	if (idwControlID == 65677)
+	if (idwControlID == TMB_CHAT_GENERAL)
 	{
 		m_pChatGeneral->m_bSelected = m_pChatGeneral->m_bSelected == 0;
 		m_pChatGeneral_C->m_bSelected = m_pChatGeneral->m_bSelected == 0;
@@ -4526,7 +4526,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 
 		auto ipNewItem = new SListBoxItem(szText, 0xFFCCAAFF, 0.0, 0.0, 280.0f, 16.0f, 0, 0x77777777u, 1u, 0);
 
-		auto pChatList = (SListBox*)m_pControlContainer->FindControl(65667);;
+		auto pChatList = (SListBox*)m_pControlContainer->FindControl(TML_CHATLIST);;
 		if (ipNewItem && pChatList)
 			pChatList->AddItem(ipNewItem);
 
@@ -4758,7 +4758,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		SetVisiblePotal(0, 0);
 		return 1;
 	}
-	if (idwControlID == 65881)
+	if (idwControlID == TMB_SYS_CHAR)
 	{
 		m_dwLastLogout = g_pTimerManager->GetServerTime();
 		MSG_STANDARDPARM stParm{};
@@ -4768,7 +4768,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		SendOneMessage((char*)&stParm, sizeof(stParm));
 		return 1;
 	}
-	if (idwControlID == 65883)
+	if (idwControlID == TMB_SYS_CANCEL)
 	{
 		m_pSystemPanel->SetVisible(0);
 		return 1;
@@ -5151,7 +5151,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 
 		return 0;
 	}
-	if (idwControlID == 65716)
+	if (idwControlID == TMB_CI_STR_E)
 	{
 		if (m_pMyHuman->m_cDie == 1)
 			return 1;
@@ -5166,7 +5166,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		SendOneMessage((char*)&stApplyBonus, sizeof(stApplyBonus));
 		return 1;
 	}
-	if (idwControlID == 65719)
+	if (idwControlID == TMB_CI_INT_E)
 	{
 		if (m_pMyHuman->m_cDie == 1)
 			return 1;
@@ -5181,7 +5181,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		SendOneMessage((char*)&stApplyBonus, sizeof(stApplyBonus));
 		return 1;
 	}
-	if (idwControlID == 65722)
+	if (idwControlID == TMB_CI_DEX_E)
 	{
 		if (m_pMyHuman->m_cDie == 1)
 			return 1;
@@ -5196,7 +5196,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		SendOneMessage((char*)&stApplyBonus, sizeof(stApplyBonus));
 		return 1;
 	}
-	if (idwControlID == 65725)
+	if (idwControlID == TMB_CI_CON_E)
 	{
 		if (m_pMyHuman->m_cDie == 1)
 			return 1;
@@ -5211,7 +5211,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		SendOneMessage((char*)&stApplyBonus, sizeof(stApplyBonus));
 		return 1;
 	}
-	if (idwControlID == 65754)
+	if (idwControlID == TMB_CI_SPECIAL1_E)
 	{
 		if (m_pMyHuman->m_cDie == 1)
 			return 1;
@@ -5252,7 +5252,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		}
 		return 1;
 	}
-	if (idwControlID == 65757)
+	if (idwControlID == TMB_CI_SPECIAL2_E)
 	{
 		if (m_pMyHuman->m_cDie == 1)
 			return 1;
@@ -5297,7 +5297,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		}
 		return 1;
 	}
-	if (idwControlID == 65760)
+	if (idwControlID == TMB_CI_SPECIAL3_E)
 	{
 		if (m_pMyHuman->m_cDie == 1)
 			return 1;
@@ -5338,7 +5338,7 @@ int TMFieldScene::OnControlEvent(unsigned int idwControlID, unsigned int idwEven
 		}
 		return 1;
 	}
-	if (idwControlID == 65763)
+	if (idwControlID == TMB_CI_SPECIAL4_E)
 	{
 		if (m_pMyHuman->m_cDie == 1)
 			return 1;
@@ -6599,10 +6599,10 @@ int TMFieldScene::FrameMove(unsigned int dwServerTime)
 	if (pCPanel && pCPanel->IsVisible() == 1)
 	{
 		int btPressType = 0;
-		auto pOpSTRButton = (SButton*)m_pControlContainer->FindControl(65716);
-		auto pOpINTButton = (SButton*)m_pControlContainer->FindControl(65719);
-		auto pOpDEXButton = (SButton*)m_pControlContainer->FindControl(65722);
-		auto pOpCONButton = (SButton*)m_pControlContainer->FindControl(65725);
+		auto pOpSTRButton = (SButton*)m_pControlContainer->FindControl(TMB_CI_STR_E);
+		auto pOpINTButton = (SButton*)m_pControlContainer->FindControl(TMB_CI_INT_E);
+		auto pOpDEXButton = (SButton*)m_pControlContainer->FindControl(TMB_CI_DEX_E);
+		auto pOpCONButton = (SButton*)m_pControlContainer->FindControl(TMB_CI_CON_E);
 		if (pOpSTRButton->IsOver() == 1)
 			btPressType = 65716;
 		if (pOpINTButton->IsOver() == 1)
@@ -6612,10 +6612,10 @@ int TMFieldScene::FrameMove(unsigned int dwServerTime)
 		if (pOpCONButton->IsOver() == 1)
 			btPressType = 65725;
 
-		auto pOpSP1Button = (SButton*)m_pControlContainer->FindControl(65754);
-		auto pOpSP2Button = (SButton*)m_pControlContainer->FindControl(65757);
-		auto pOpSP3Button = (SButton*)m_pControlContainer->FindControl(65760);
-		auto pOpSP4Button = (SButton*)m_pControlContainer->FindControl(65763);
+		auto pOpSP1Button = (SButton*)m_pControlContainer->FindControl(TMB_CI_SPECIAL1_E);
+		auto pOpSP2Button = (SButton*)m_pControlContainer->FindControl(TMB_CI_SPECIAL2_E);
+		auto pOpSP3Button = (SButton*)m_pControlContainer->FindControl(TMB_CI_SPECIAL3_E);
+		auto pOpSP4Button = (SButton*)m_pControlContainer->FindControl(TMB_CI_SPECIAL4_E);
 		if (pOpSP1Button->IsOver() == 1)
 			btPressType = 65754;
 		if (pOpSP2Button->IsOver() == 1)
@@ -12297,8 +12297,8 @@ void TMFieldScene::SetVisibleTrade(int bShow)
 {
 	SGridControl::m_sLastMouseOverIndex = -1;
 
-	auto pBtnChar = static_cast<SButton*>(m_pControlContainer->FindControl(B_CHAR));
-	auto pBtnInv = static_cast<SButton*>(m_pControlContainer->FindControl(B_EQUIP));
+	auto pBtnChar = static_cast<SButton*>(m_pControlContainer->FindControl(TMB_CHAR));
+	auto pBtnInv = static_cast<SButton*>(m_pControlContainer->FindControl(TMB_EQUIP));
 	auto pMyGold = static_cast<SText*>(m_pControlContainer->FindControl(TMT_TRADE_MYGOLD));
 	auto pOPGold = static_cast<SText*>(m_pControlContainer->FindControl(TMT_TRADE_OPGOLD));
 
@@ -13116,8 +13116,8 @@ void TMFieldScene::SetVisibleSkill()
 void TMFieldScene::SetVisibleServerWar()
 {
 	auto pInputGoldPanel = (SControl*)m_pInputGoldPanel;
-	auto pEdit = (SEditableText*)m_pControlContainer->FindControl(65889);
-	auto pText = (SText*)m_pControlContainer->FindControl(65888);
+	auto pEdit = (SEditableText*)m_pControlContainer->FindControl(TME_INPUT_GOLD);
+	auto pText = (SText*)m_pControlContainer->FindControl(TMT_INPUT_GOLD);
 
 	m_nCoinMsgType = 9;
 	pText->SetText(g_pMessageStringTable[374], 0);
@@ -13128,8 +13128,8 @@ void TMFieldScene::SetVisibleServerWar()
 void TMFieldScene::SetVisibleRefuseServerWar()
 {
 	auto pInputGoldPanel = (SControl*)m_pInputGoldPanel;
-	auto pEdit = (SEditableText*)m_pControlContainer->FindControl(65889);
-	auto pText = (SText*)m_pControlContainer->FindControl(65888);
+	auto pEdit = (SEditableText*)m_pControlContainer->FindControl(TME_INPUT_GOLD);
+	auto pText = (SText*)m_pControlContainer->FindControl(TMT_INPUT_GOLD);
 
 	m_nCoinMsgType = 10;
 	pText->SetText(g_pMessageStringTable[375], 0);
@@ -13139,7 +13139,7 @@ void TMFieldScene::SetVisibleRefuseServerWar()
 
 void TMFieldScene::SetInVisibleInputCoin()
 {
-	auto pEdit = (SEditableText*)m_pControlContainer->FindControl(65889u);
+	auto pEdit = (SEditableText*)m_pControlContainer->FindControl(TME_INPUT_GOLD);
 	auto pInputGoldPanel = (SControl*)m_pInputGoldPanel;
 
 	m_pControlContainer->SetFocusedControl(nullptr);
@@ -14703,9 +14703,9 @@ void TMFieldScene::SetVisibleAutoTrade(int bShow, int bCargo)
 	if (m_pAutoTrade)
 	{
 		auto pBtnCloseAutoTrade = static_cast<SButton*>(m_pControlContainer->FindControl(TMB_ATRADE_CLOSE));
-		auto pBtnAutoTrade = static_cast<SButton*>(m_pControlContainer->FindControl(B_AUTOTRADEBTN));
-		auto pBtnChar = static_cast<SButton*>(m_pControlContainer->FindControl(B_CHAR));
-		auto pBtnInv = static_cast<SButton*>(m_pControlContainer->FindControl(B_EQUIP));
+		auto pBtnAutoTrade = static_cast<SButton*>(m_pControlContainer->FindControl(TMB_AUTOTRADEBTN));
+		auto pBtnChar = static_cast<SButton*>(m_pControlContainer->FindControl(TMB_CHAR));
+		auto pBtnInv = static_cast<SButton*>(m_pControlContainer->FindControl(TMB_EQUIP));
 		auto pMyCargoCoin = static_cast<SText*>(m_pControlContainer->FindControl(TMT_ATRADE_COIN));
 		auto pMyCargoCoinB = static_cast<SButton*>(m_pControlContainer->FindControl(TMB_ATRADE_COIN));
 		
@@ -15271,21 +15271,21 @@ void TMFieldScene::InitBoard()
 		m_nCurrInterfacePanelIndex = 0;
 	}	
 
-	m_pQuestPanel = (SPanel*)m_pControlContainer->FindControl(1054256);
+	m_pQuestPanel = (SPanel*)m_pControlContainer->FindControl(TMP_QUEST_PANEL);
 	if (m_pQuestPanel)
 	{
-		m_pQuestButton[0] = (SButton*)m_pControlContainer->FindControl(1054259);
-		m_pQuestList[0] = (SListBox*)m_pControlContainer->FindControl(1054260);
-		m_pQuestContentList[0] = (SListBox*)m_pControlContainer->FindControl(1054261);
-		m_pQuestButton[1] = (SButton*)m_pControlContainer->FindControl(1054262);
-		m_pQuestList[1] = (SListBox*)m_pControlContainer->FindControl(1054263);
-		m_pQuestContentList[1] = (SListBox*)m_pControlContainer->FindControl(1054264);
-		m_pQuestButton[2] = (SButton*)m_pControlContainer->FindControl(1054265);
-		m_pQuestList[2] = (SListBox*)m_pControlContainer->FindControl(1054266);
-		m_pQuestContentList[2] = (SListBox*)m_pControlContainer->FindControl(1054267);
-		m_pQuestButton[3] = (SButton*)m_pControlContainer->FindControl(1054268);
-		m_pQuestList[3] = (SListBox*)m_pControlContainer->FindControl(1054269);
-		m_pQuestContentList[3] = (SListBox*)m_pControlContainer->FindControl(1054271);
+		m_pQuestButton[0] = (SButton*)m_pControlContainer->FindControl(TMB_QUEST_BUTTON);
+		m_pQuestList[0] = (SListBox*)m_pControlContainer->FindControl(TML_QUEST_LIST);
+		m_pQuestContentList[0] = (SListBox*)m_pControlContainer->FindControl(TML_QUEST_CONTENT);
+		m_pQuestButton[1] = (SButton*)m_pControlContainer->FindControl(TMB_QUEST_BUTTON2);
+		m_pQuestList[1] = (SListBox*)m_pControlContainer->FindControl(TML_QUEST_LIST2);
+		m_pQuestContentList[1] = (SListBox*)m_pControlContainer->FindControl(TML_QUEST_CONTENT2);
+		m_pQuestButton[2] = (SButton*)m_pControlContainer->FindControl(TMB_QUEST_BUTTON3);
+		m_pQuestList[2] = (SListBox*)m_pControlContainer->FindControl(TML_QUEST_LIST3);
+		m_pQuestContentList[2] = (SListBox*)m_pControlContainer->FindControl(TML_QUEST_CONTENT3);
+		m_pQuestButton[3] = (SButton*)m_pControlContainer->FindControl(TMB_QUEST_BUTTON4);
+		m_pQuestList[3] = (SListBox*)m_pControlContainer->FindControl(TML_QUEST_LIST4);
+		m_pQuestContentList[3] = (SListBox*)m_pControlContainer->FindControl(TML_QUEST_CONTENT4);
 
 		if (m_pQuestList[0])
 			m_pQuestList[0]->SetVisible(0);
@@ -15323,7 +15323,7 @@ void TMFieldScene::InitBoard()
 		LoadMsgLevel(m_pLevelQuest, "UI\\QuestSubjects4.txt", 101);
 		LoadMsgLevel(m_pLevelQuest, "UI\\QuestMessage.txt", 100);
 
-		m_pQuestMemo = (SButton*)m_pControlContainer->FindControl(1054273);
+		m_pQuestMemo = (SButton*)m_pControlContainer->FindControl(TMB_QUEST_MEMO);
 		m_pQuestMemo->m_cAlwaysAlt = 1;
 		m_pQuestMemo->m_cBlink = 1;
 
@@ -15792,7 +15792,7 @@ void TMFieldScene::SetRunMode()
 
 void TMFieldScene::UseTicket(int nCellX, int nCellY)
 {
-	auto pGrid = (SGridControl*)m_pControlContainer->FindControl(65554);
+	auto pGrid = (SGridControl*)m_pControlContainer->FindControl(TMG_INV_GRID);
 	auto pItem = pGrid->GetItem(nCellX, nCellY);
 	if (!pItem)
 		return;
@@ -16213,8 +16213,8 @@ void TMFieldScene::MobStop(D3DXVECTOR3 vec)
 void TMFieldScene::VisibleInputTradeName()
 {
 	auto pInputGoldPanel = (SControl*)m_pInputGoldPanel;
-	auto pText = (SText*)m_pControlContainer->FindControl(65888u);
-	auto pEdit = (SEditableText*)m_pControlContainer->FindControl(65889u);
+	auto pText = (SText*)m_pControlContainer->FindControl(TMT_INPUT_GOLD);
+	auto pEdit = (SEditableText*)m_pControlContainer->FindControl(TME_INPUT_GOLD);
 	if (pText && pEdit)
 	{
 		m_nCoinMsgType = 3;
@@ -16232,8 +16232,8 @@ void TMFieldScene::VisibleInputTradeName()
 void TMFieldScene::VisibleInputPass()
 {
 	auto pInputGoldPanel = (SControl*)m_pInputGoldPanel;
-	auto pText = (SText*)m_pControlContainer->FindControl(65888);
-	auto pEdit = (SEditableText*)m_pControlContainer->FindControl(65889);
+	auto pText = (SText*)m_pControlContainer->FindControl(TMT_INPUT_GOLD);
+	auto pEdit = (SEditableText*)m_pControlContainer->FindControl(TME_INPUT_GOLD);
 	if (pText && pEdit)
 	{
 		m_nCoinMsgType = 11;
@@ -16252,8 +16252,8 @@ void TMFieldScene::VisibleInputPass()
 void TMFieldScene::VisibleInputGuildName()
 {
 	auto pInputGoldPanel = (SControl*)m_pInputGoldPanel;
-	auto pText = (SText*)m_pControlContainer->FindControl(65888);
-	auto pEdit = (SEditableText*)m_pControlContainer->FindControl(65889);
+	auto pText = (SText*)m_pControlContainer->FindControl(TMT_INPUT_GOLD);
+	auto pEdit = (SEditableText*)m_pControlContainer->FindControl(TME_INPUT_GOLD);
 	if (pText && pEdit)
 	{
 		m_nCoinMsgType = 8;
@@ -16295,8 +16295,8 @@ void TMFieldScene::VisibleInputCharName(SGridControlItem* pItem, int nCellX, int
 		m_stCapsuleItem.GridX = nCellX;
 		m_stCapsuleItem.GridY = nCellY;
 
-		auto pText = static_cast<SText*>(m_pControlContainer->FindControl(T_INPUT_GOLD));
-		auto pEdit = static_cast<SEditableText*>(m_pControlContainer->FindControl(E_INPUT_GOLD));
+		auto pText = static_cast<SText*>(m_pControlContainer->FindControl(TMT_INPUT_GOLD));
+		auto pEdit = static_cast<SEditableText*>(m_pControlContainer->FindControl(TME_INPUT_GOLD));
 
 		if (pText && pEdit)
 		{
@@ -16403,7 +16403,7 @@ void TMFieldScene::UseItem(SGridControlItem* pItem, int nType, int nItemSIndex, 
 void TMFieldScene::SendCapsuleItem()
 {
 	unsigned int dwServerTime = g_pTimerManager->GetServerTime();
-	auto pEditID = (SEditableText*)m_pControlContainer->FindControl(65889);
+	auto pEditID = (SEditableText*)m_pControlContainer->FindControl(TME_INPUT_GOLD);
 
 	int len = strlen(pEditID->GetText());
 	if (len >= 4)
@@ -16811,7 +16811,7 @@ int TMFieldScene::OnMsgBoxEvent(unsigned int idwControlID, unsigned int idwEvent
 		SendOneMessage((char*)&stParam, sizeof(stParam));
 	}
 	break;
-	case 65859:
+	case TMB_ITEMMIX_RUN:
 		DoCombine();
 		break;
 	case 6434:
@@ -17107,7 +17107,7 @@ int TMFieldScene::OnKeyPlus(char iCharCode, int lParam)
 	m_pChatBack->SetSize(BASE_ScreenResize(10.0) + pChatList->m_nWidth, pChatList->m_nHeight);
 
 	pChatList->m_pScrollBar->SetMaxValue(1000);
-	auto pChatPanel = (SPanel*)m_pControlContainer->FindControl(65672u);
+	auto pChatPanel = (SPanel*)m_pControlContainer->FindControl(TMP_CHAT_PANEL);
 
 	if (pChatPanel)
 	{
@@ -17398,7 +17398,7 @@ int TMFieldScene::OnKeyShortSkill(char iCharCode, int lParam)
 
 		int nSkillDam = BASE_GetSkillDamage(cSkillIndex, pMobData, nWeather, GetWeaponDamage(), 
 			g_pObjectManager->m_stSelCharData.Equip[g_pObjectManager->m_cCharacterSlot][0].sIndex);
-		auto pSkillDam = (SText*)m_pControlContainer->FindControl(65735);
+		auto pSkillDam = (SText*)m_pControlContainer->FindControl(TMT_CI_ATRT);
 
 		char szStr[128]{};
 		if (nSkillDam < 0)
@@ -17416,7 +17416,7 @@ int TMFieldScene::OnKeyShortSkill(char iCharCode, int lParam)
 	}
 	else
 	{
-		auto pText = static_cast<SText*>(m_pControlContainer->FindControl(65735));
+		auto pText = static_cast<SText*>(m_pControlContainer->FindControl(TMT_CI_ATRT));
 		
 		char szStr[128]{};
 		sprintf(szStr, "%d", 0);
@@ -17460,7 +17460,7 @@ int TMFieldScene::OnKeyVisibleInven(char iCharCode, int lParam)
 	SetVisibleInventory();
 
 	auto pPanel = m_pInvenPanel;
-	auto pBtnEquip = static_cast<SButton*>(m_pControlContainer->FindControl(65791u));
+	auto pBtnEquip = static_cast<SButton*>(m_pControlContainer->FindControl(TMB_EQUIP));
 
 	if (pBtnEquip)
 		pBtnEquip->SetSelected(pPanel->m_bVisible);
@@ -17482,7 +17482,7 @@ int TMFieldScene::OnKeyVisibleCharInfo(char iCharCode, int lParam)
 	SetVisibleCharInfo();
 
 	auto pPanel = m_pCPanel;
-	auto pBtnChar = static_cast<SButton*>(m_pControlContainer->FindControl(65790));
+	auto pBtnChar = static_cast<SButton*>(m_pControlContainer->FindControl(TMB_CHAR));
 	if (pBtnChar)
 		pBtnChar->SetSelected(pPanel->m_bVisible);
 
@@ -18945,7 +18945,7 @@ int TMFieldScene::OnPacketCNFDropItem(MSG_CNFDropItem* pMsg)
 	}
 	else if (pMsg->SourType == 2)
 	{
-		pGridItem = static_cast<SGridControl*>(m_pControlContainer->FindControl(65690))->PickupAtItem(pMsg->SourPos % 5, pMsg->SourPos / 5);
+		pGridItem = static_cast<SGridControl*>(m_pControlContainer->FindControl(TMG_CARGO_GRID))->PickupAtItem(pMsg->SourPos % 5, pMsg->SourPos / 5);
 		memset(&g_pObjectManager->m_stItemCargo[pMsg->SourPos], 0, sizeof(STRUCT_ITEM));
 	}
 
@@ -20220,7 +20220,7 @@ int TMFieldScene::OnPacketAttack(MSG_STANDARD* pStd)
 			{
 				g_pObjectManager->m_stMobData.CurrentScore.Mp = pAttack->CurrentMp;
 				auto pMPBar = (SProgressBar*)m_pControlContainer->FindControl(1170);
-				auto pCurrentMPText = (SText*)m_pControlContainer->FindControl(65616);
+				auto pCurrentMPText = (SText*)m_pControlContainer->FindControl(TMT_CURRENT_MP);
 
 				if (pMPBar)
 					pMPBar->SetCurrentProgress(pAttacker->m_stScore.Mp);
@@ -24316,12 +24316,12 @@ int TMFieldScene::MouseClick_QuestNPC(unsigned int dwServerTime, TMHuman* pOver)
 	if (pOver->m_dwID <= 0 || pOver->m_dwID >= 1000 && (pOver->m_stScore.Reserved & 0xF) == 9 && pOver->m_sHeadIndex == 51)
 	{
 		m_pInputGoldPanel->SetVisible(1);
-		auto pText = (SText*)m_pControlContainer->FindControl(65888);
+		auto pText = (SText*)m_pControlContainer->FindControl(TMT_INPUT_GOLD);
 		if (pText)
 		{
 			m_nCoinMsgType = 7;
 			pText->SetText(g_pMessageStringTable[136], 0);
-			auto pEdit = (SEditableText*)g_pCurrentScene->m_pControlContainer->FindControl(65889);
+			auto pEdit = (SEditableText*)g_pCurrentScene->m_pControlContainer->FindControl(TME_INPUT_GOLD);
 			m_pControlContainer->SetFocusedControl((SControl*)pEdit);
 		}
 	}
